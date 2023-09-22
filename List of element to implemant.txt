@@ -1,0 +1,19 @@
+Liste d'élement à implanter pour Newfeeds: WildFeeds
+
+ - Priorité :
+
+- Logo + Titre +  endroit profil utilisateur ( sign up/ log in)
+- Posts ( Fil d'actualité ) : Possibilité de créer un post directement sur le mur
+- supprimer post ou modifier 
+- Liker ( compteur like + bouton )
+- Partager ( compteur partage + bouton )
+- Commenter ( bouton + Super une nouvelle boite par dessus )
+
+- Secondaire :
+
+- pages de profils codé en dur
+- Fonctionnalité de recherche de posts ( par titre ? )
+- Lien vers profil utilisateur ( logo post utilisateur )
+- Une page sign up/log in
+- Post clickable pour agrandir
+- tags ( pour personnalisé plus l'UX )
