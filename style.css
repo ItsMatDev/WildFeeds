@@ -1,13 +1,29 @@
-.body{
-    margin-inline: 20rem;
+ body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
     width: 100%;
+    height: 2rem;
+    border: 1px solid black;
+    background-color:#a306b6;
+    margin-bottom: 1rem;
+}
+.createPost {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
 }
 
 .post {
-    width: auto;
-    margin-block: 2rem;
+    width: 80%;
     border: 1px solid black;
     border-radius: 10px;
+    background-color: #ebf2fa;
+    margin-block: 1rem;
+  
 }
 
 .postHead {
@@ -43,11 +59,24 @@
     margin-right: 1rem;
     width: 2rem;
     height: 2rem;
-    border-radius: 10px; 
+    border-radius: 10px;
+    border: 2px solid  #FAF45E;
+    background-color: #a306b6;
 }
+
+.buttonSettings:hover {
+    transform: rotate(0.05rad);
+    cursor: pointer;
+}
+.buttonSettings:active {
+        box-shadow: 1px 1px 5px #FAF45E;
+    
+}
+
 .buttonSettingsPicture {
     width: 1rem;
 }
+
 
 .postContent {
     display: flex;
@@ -73,6 +102,7 @@
     flex-direction: row-reverse;
 }
 .buttonShare {
+    margin-block: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
 
