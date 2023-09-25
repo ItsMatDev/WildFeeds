@@ -1,0 +1,79 @@
+.body{
+    margin-inline: 20rem;
+    width: 100%;
+}
+
+.post {
+    width: auto;
+    margin-block: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.postHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #a306b6;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    
+}
+
+.postHeadLogoName {
+    display:flex;
+    align-items: center;
+}
+.userLogo {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid  #FAF45E;
+    border-radius: 10px;
+    margin-inline: 0.8rem;
+}
+
+.userName {
+    font-size: 1rem;
+    color: #FAF45E;
+}
+
+.buttonSettings {
+    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px; 
+}
+.buttonSettingsPicture {
+    width: 1rem;
+}
+
+.postContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.postContentTextPicture {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.postContentPicture {
+    width: 100%;
+    
+}
+
+.buttonBox {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.buttonShare {
+    margin-right: 1rem;
+    border-radius: 10px;
+
+}
