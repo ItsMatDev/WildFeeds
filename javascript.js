@@ -41,11 +41,30 @@ createPostButton.forEach((button) => {
     });
 });
 
-const buttonShare = document.querySelector('.buttonShare3');
-buttonShare.addEventListener("click", (event) => {
-    const post = document.querySelector('.post3');
-    const postShared = post.cloneNode(true);
-    document.body.insertBefore(postShared, createPostButton.nextSibling);
+    const createPost = document.querySelector('.createPost')
+
+    const shareButtons = document.querySelectorAll('.buttonShare');
+
+    shareButtons.forEach((shareButton) => {
+        shareButton.addEventListener('click', (event) => {
+            const parentArticle = event.currentTarget.closest('.post');
+
+            if (parentArticle) {
+                const clonedArticle = parentArticle.cloneNode(true);
+                document.body.insertBefore(clonedArticle, createPost.nextSibling);
+            }
+
+            const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
+
+            buttonSettings.forEach((buttonSetting) => {
+                buttonSetting.addEventListener('click', (event) => {
+                    const parentPost = event.currentTarget.closest('.post');
+                    if (parentPost) {
+                        document.body.removeChild(parentPost);
+                    }
+                });
+            });
+        });
 });
 
 
@@ -56,7 +75,6 @@ buttonSettings.forEach((buttonSetting) => {
         const parentPost = event.currentTarget.closest('.post');
         if (parentPost) {
             document.body.removeChild(parentPost);
-            console.log("oui");
         }
     });
 });
