@@ -1,6 +1,10 @@
 const createPostButton = document.querySelectorAll('.createPost');
 const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
 const buttonShare = document.querySelectorAll('.buttonShare');
+let numberOfShare = 0
+
+
+
 
 function setButtonSettings (button) {
 
@@ -16,14 +20,25 @@ function setButtonSettings (button) {
         button.forEach((button) => {
             button.addEventListener('click', () => {
                 const parentPost = button.closest('.post');
-                
+                    
                     const sharedPost = parentPost.cloneNode(true);
                     document.body.insertBefore(sharedPost, createPostButton[0].nextSibling);
                     const buttonSetting = sharedPost.querySelectorAll('.buttonSettingsPicture');
                     setButtonSettings(buttonSetting);
+                    
+                    const parentPostButtonShare = parentPost.querySelector('.buttonShare');
+
+                    if (!parentPostButtonShare.dataset.shareCount) {
+                        parentPostButtonShare.dataset.shareCount = 1;
+                    } else {
+                        parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
+                    }
+                    
+                    parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
+        
 
     
-                
+
             });
     });
     }
@@ -81,4 +96,3 @@ createPostButton.forEach((createPostButton) => {
 });
 
  
-    
