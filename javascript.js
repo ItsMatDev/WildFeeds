@@ -31,7 +31,6 @@ createNewPost.addEventListener("click", (event) => {
         emptyPostContentText.innerHTML = inputValue;
         emptyPostContentPicture.src = inputImageValue
     })
-
 })
 
 
@@ -71,51 +70,7 @@ const commentsPost3 = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." }
 ]
 
-/*
-// création de l'espace commentaire du premier post
-const currentPost = document.querySelector('.post');
-// création des éléments composant la comment section
-const hr = document.createElement('hr');
-hr.classList.add('commentHr');
-currentPost.appendChild(hr);
-const commentsContainer = document.createElement('div');
-commentsContainer.classList.add('commentsContainer');
-currentPost.appendChild(commentsContainer);
-// création des éléments pour chaque commentaire à afficher
-comments.forEach(comment => {
-    const commentBox = document.createElement('div');
-    commentBox.classList.add('commentBox');
-    commentsContainer.appendChild(commentBox);
-    const commentProfile = document.createElement('div');
-    commentProfile.classList.add('commentProfile');
-    commentBox.appendChild(commentProfile);
-    const profilePicture = document.createElement('img');
-    profilePicture.src = comment.picture;
-    profilePicture.classList.add('commentPicture');
-    commentProfile.appendChild(profilePicture);
-    const commentBody = document.createElement('div');
-    commentBody.classList.add('commentBody');
-    commentBox.appendChild(commentBody);
-    const profileName = document.createElement('h3');
-    profileName.classList.add('commentName');
-    profileName.innerText = comment.name;
-    commentBody.appendChild(profileName);
-    const commentText = document.createElement('p');
-    commentText.classList.add('commentText');
-    commentText.innerText = comment.comment;
-    commentBody.appendChild(commentText);
-})
-*/
-
-/*
-// Gestion de l'affichage de la section commentaire
-buttonComments.addEventListener('click', function () {
-    commentsContainer.classList.toggle('visible');
-    hr.classList.toggle('visible');
-})
-*/
-
-// Permet d'afficher ou non la section commentaire
+// Ajoute ou retire la classe visible aux éléments visés
 function visible(hr, commentsContainer) {
     commentsContainer.classList.toggle('visible');
     hr.classList.toggle('visible');
@@ -131,8 +86,11 @@ posts.forEach((post, index) => {
     const commentsContainer = document.createElement('div');
     commentsContainer.classList.add('commentsContainer');
     post.appendChild(commentsContainer);
+    const comments = commentsSelection(index);
+    // Affichage du compteur de commentaires
+    buttonComments[index].innerHTML = `${comments.length} Commentaires`;
     // Selectionne les commentaires à afficher en fonction de l'index du post
-    commentsSelection(index).forEach(comment => {
+    comments.forEach(comment => {
         // Création des éléments pour chaque commentaire à afficher
         const commentBox = document.createElement('div');
         commentBox.classList.add('commentBox');
@@ -158,7 +116,8 @@ posts.forEach((post, index) => {
     })
 })
 
-// Test event listener sur plusieurs boutons
+// Permet de déclencher l'affichage de la section commentaire
+// correspondant au post lors d'un clic sur le bouton commentaire
 buttonComments.forEach(button => {
     button.addEventListener('click', function () {
         const currentPost = button.closest('.post');
