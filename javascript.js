@@ -53,20 +53,22 @@ buttonShare.addEventListener("click", (event) => {
 
 const buttonComments = document.querySelectorAll('.buttonComments');
 const post1 = document.querySelector('.post1');
-const comments = [
+const commentsPost1 = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
 ]
 const commentsPost2 = [
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 2" },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+
 ]
 const commentsPost3 = [
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 3" },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." }
 ]
 
 /*
@@ -122,15 +124,16 @@ function visible(hr, commentsContainer) {
 
 // Création de chaque espace commentaire
 const posts = document.querySelectorAll('.post');
-posts.forEach(post => {
+posts.forEach((post, index) => {
     const hr = document.createElement('hr');
     hr.classList.add('commentHr');
     post.appendChild(hr);
     const commentsContainer = document.createElement('div');
     commentsContainer.classList.add('commentsContainer');
     post.appendChild(commentsContainer);
-    // Création des éléments pour chaque commentaire à afficher
-    comments.forEach(comment => {
+    // Selectionne les commentaires à afficher en fonction de l'index du post
+    commentsSelection(index).forEach(comment => {
+        // Création des éléments pour chaque commentaire à afficher
         const commentBox = document.createElement('div');
         commentBox.classList.add('commentBox');
         commentsContainer.appendChild(commentBox);
@@ -164,15 +167,16 @@ buttonComments.forEach(button => {
         visible(hr, commentContainer);
     });
 })
-/*
-commentsSelection(index, comments){
+
+// Renvoie le tableau d'objets commentaires en fonction de l'index
+function commentsSelection(index) {
     switch (index) {
         case 0:
-            break;
+            return commentsPost1;
         case 1:
-            break;
+            return commentsPost2;
         case 2:
-            break;
+            return commentsPost3;
     }
 }
-*/
+
