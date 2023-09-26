@@ -51,8 +51,7 @@ buttonShare.addEventListener("click", (event) => {
 
 // Gestion de l'espace commentaires
 
-const buttonComments = document.querySelector('#buttonComments1');
-const buttonBox = document.querySelector('.buttonBox1');
+const buttonComments = document.querySelector('.buttonComments');
 const post1 = document.querySelector('.post1');
 const comments = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
@@ -61,13 +60,18 @@ const comments = [
 ]
 
 // création de l'espace commentaire du premier post
+
+
+const currentPost = document.querySelector('.post');
+
+// création des éléments composant la comment section
 const hr = document.createElement('hr');
 hr.classList.add('commentHr');
-post1.appendChild(hr);
+currentPost.appendChild(hr);
 const commentsContainer = document.createElement('div');
 commentsContainer.classList.add('commentsContainer');
-post1.appendChild(commentsContainer);
-
+currentPost.appendChild(commentsContainer);
+// création des éléments pour chaque commentaire à afficher
 comments.forEach(comment => {
     const commentBox = document.createElement('div');
     commentBox.classList.add('commentBox');
@@ -79,14 +83,17 @@ comments.forEach(comment => {
     profilePicture.src = comment.picture;
     profilePicture.classList.add('commentPicture');
     commentProfile.appendChild(profilePicture);
+    const commentBody = document.createElement('div');
+    commentBody.classList.add('commentBody');
+    commentBox.appendChild(commentBody);
     const profileName = document.createElement('h3');
     profileName.classList.add('commentName');
     profileName.innerText = comment.name;
-    commentProfile.appendChild(profileName);
+    commentBody.appendChild(profileName);
     const commentText = document.createElement('p');
     commentText.classList.add('commentText');
     commentText.innerText = comment.comment;
-    commentBox.appendChild(commentText);
+    commentBody.appendChild(commentText);
 })
 
 
@@ -96,4 +103,57 @@ buttonComments.addEventListener('click', function () {
     hr.classList.toggle('visible');
 })
 
+/*
+// Test event listener sur plusieurs boutons
+buttonComments.forEach(button => {
+    button.addEventListener('click', function () {
+        const currentPost = button.closest('.post');
+        const commentSection = currentPost.lastElementChild;
+        const hr = commentSection.previousSibling;
+        visible(hr, commentSection);
+    });
+})
+*/
 
+// Permet d'afficher ou non la section commentaire
+function visible(hr, commentsContainer) {
+    commentsContainer.classList.toggle('visible');
+    hr.classList.toggle('visible');
+}
+
+/*
+// Création de chaque espace commentaire
+const posts = document.querySelectorAll('.post');
+posts.forEach(post => {
+    const hr = document.createElement('hr');
+    hr.classList.add('commentHr');
+    post.appendChild(hr);
+    const commentsContainer = document.createElement('div');
+    commentsContainer.classList.add('commentsContainer');
+    post.appendChild(commentsContainer);
+    // Création des éléments pour chaque commentaire à afficher
+    comments.forEach(comment => {
+        const commentBox = document.createElement('div');
+        commentBox.classList.add('commentBox');
+        commentsContainer.appendChild(commentBox);
+        const commentProfile = document.createElement('div');
+        commentProfile.classList.add('commentProfile');
+        commentBox.appendChild(commentProfile);
+        const profilePicture = document.createElement('img');
+        profilePicture.src = comment.picture;
+        profilePicture.classList.add('commentPicture');
+        commentProfile.appendChild(profilePicture);
+        const commentBody = document.createElement('div');
+        commentBody.classList.add('commentBody');
+        commentBox.appendChild(commentBody);
+        const profileName = document.createElement('h3');
+        profileName.classList.add('commentName');
+        profileName.innerText = comment.name;
+        commentBody.appendChild(profileName);
+        const commentText = document.createElement('p');
+        commentText.classList.add('commentText');
+        commentText.innerText = comment.comment;
+        commentBody.appendChild(commentText);
+    })
+})
+*/
