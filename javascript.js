@@ -71,7 +71,7 @@ createPostButton.forEach((createPostButton) => {
             buttonBox.appendChild(buttonCreate);
             buttonCreate.innerHTML = "Create"; 
             buttonCreate.classList.remove("buttonShare")
-            buttonCreate.classList.add("buttonCreate")
+            buttonCreate.classList.add("buttonCreate basicStyleButton")
 
 
             
