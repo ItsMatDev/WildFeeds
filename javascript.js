@@ -51,19 +51,27 @@ buttonShare.addEventListener("click", (event) => {
 
 // Gestion de l'espace commentaires
 
-const buttonComments = document.querySelector('.buttonComments');
+const buttonComments = document.querySelectorAll('.buttonComments');
 const post1 = document.querySelector('.post1');
 const comments = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
 ]
+const commentsPost2 = [
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+]
+const commentsPost3 = [
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+]
 
+/*
 // création de l'espace commentaire du premier post
-
-
 const currentPost = document.querySelector('.post');
-
 // création des éléments composant la comment section
 const hr = document.createElement('hr');
 hr.classList.add('commentHr');
@@ -95,23 +103,13 @@ comments.forEach(comment => {
     commentText.innerText = comment.comment;
     commentBody.appendChild(commentText);
 })
+*/
 
-
+/*
 // Gestion de l'affichage de la section commentaire
 buttonComments.addEventListener('click', function () {
     commentsContainer.classList.toggle('visible');
     hr.classList.toggle('visible');
-})
-
-/*
-// Test event listener sur plusieurs boutons
-buttonComments.forEach(button => {
-    button.addEventListener('click', function () {
-        const currentPost = button.closest('.post');
-        const commentSection = currentPost.lastElementChild;
-        const hr = commentSection.previousSibling;
-        visible(hr, commentSection);
-    });
 })
 */
 
@@ -121,7 +119,7 @@ function visible(hr, commentsContainer) {
     hr.classList.toggle('visible');
 }
 
-/*
+
 // Création de chaque espace commentaire
 const posts = document.querySelectorAll('.post');
 posts.forEach(post => {
@@ -156,4 +154,25 @@ posts.forEach(post => {
         commentBody.appendChild(commentText);
     })
 })
+
+// Test event listener sur plusieurs boutons
+buttonComments.forEach(button => {
+    button.addEventListener('click', function () {
+        const currentPost = button.closest('.post');
+        const commentContainer = currentPost.lastChild;
+        const hr = commentContainer.previousSibling;
+        visible(hr, commentContainer);
+    });
+})
+/*
+commentsSelection(index, comments){
+    switch (index) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+    }
+}
 */
