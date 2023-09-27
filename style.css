@@ -51,6 +51,7 @@ nav {
 }
 
 .post {
+    width: 100%;
     border: 1px solid black;
     border-radius: 10px;
     background-color: var(--background-primary);
