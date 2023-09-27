@@ -132,7 +132,6 @@ nav {
 
 .postContentPicture {
     width: 100%;
-
 }
 
 .buttonBox {
@@ -161,12 +160,12 @@ nav {
 
 .inputDiv {
     display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 70%;
+    margin-left: auto;
+    width: 80%;
 }
 
 .commentInput {
+    width: 80%;
     margin-right: .3rem;
 }
 
