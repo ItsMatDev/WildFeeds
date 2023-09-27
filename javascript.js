@@ -70,9 +70,9 @@ createPostButton.forEach((createPostButton) => {
             const buttonBox = emptyPost.querySelector('.buttonBox');
             buttonBox.appendChild(buttonCreate);
             buttonCreate.innerHTML = "Create"; 
-            buttonCreate.classList.remove("buttonShare")
-            buttonCreate.classList.add("buttonCreate basicStyleButton")
-
+            buttonCreate.classList.remove("buttonShare");
+            buttonCreate.classList.add("buttonCreate");
+            buttonCreate.classList.add("basicStyleButton");
 
             
 

@@ -1,7 +1,19 @@
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
+ 
  body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation-delay: 500ms;
 }
 
 nav {
@@ -25,6 +37,9 @@ nav {
     background: #A306B6;
     padding: 10px 20px 10px 20px;
     border: solid #FAF45E 2px;
+    margin-block: 0.5rem;
+    margin-right: 1rem;
+    border-radius: 10px;
 }
 
 .post {
@@ -33,6 +48,10 @@ nav {
     background-color: #ebf2fa;
     margin-block: 1rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    animation-name: slide-in;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    
 }
 
 .postHead {
@@ -109,10 +128,4 @@ nav {
 .buttonBox {
     display: flex;
     flex-direction: row-reverse;
-}
-.buttonShare {
-    margin-block: 0.5rem;
-    margin-right: 1rem;
-    border-radius: 10px;
-
 }
