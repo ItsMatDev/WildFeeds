@@ -140,14 +140,6 @@ nav {
     flex-direction: row-reverse;
 }
 
-.buttonShare,
-.buttonComments,
-.buttonSubmit {
-    margin-block: 0.5rem;
-    margin-right: 1rem;
-    border-radius: 10px;
-}
-
 .commentsContainer {
     height: auto;
     display: none;

@@ -75,6 +75,7 @@ createPostButton.forEach((createPostButton) => {
         buttonCreate.classList.remove("buttonShare");
         buttonCreate.classList.add("buttonCreate");
         buttonCreate.classList.add("basicStyleButton");
+        buttonShare.style.display = 'none'
 
 
 
@@ -88,6 +89,7 @@ createPostButton.forEach((createPostButton) => {
             postContentText.innerHTML = inputValue;
             postContentPicture.src = inputImageValue;
             buttonCreate.style.display = 'none';
+            buttonShare.style.display = 'initial'
         });
 
         document.body.insertBefore(emptyPost, createPostButton.nextSibling);
