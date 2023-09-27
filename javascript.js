@@ -218,6 +218,7 @@ buttonSubmit.forEach(button => {
         button.previousSibling.value = "";
         firstComment = commentsContainer.querySelector('.commentBox');
         createComment(commentsContainer, comment, firstComment);
+        buttonCommentIncrement(commentsContainer);
     })
 })
 
@@ -244,4 +245,11 @@ function createComment(commentsContainer, comment, firstComment) {
     commentText.classList.add('commentText');
     commentText.innerText = comment;
     commentBody.appendChild(commentText);
+}
+
+function buttonCommentIncrement(commentsContainer) {
+    const currentPost = commentsContainer.closest('.post');
+    const commentCount = currentPost.querySelectorAll('.commentBox').length;
+    const buttonComment = currentPost.querySelector('.buttonComments');
+    buttonComment.innerText = `${commentCount} Commentaires`;
 }

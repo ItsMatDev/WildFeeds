@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --primary-color: #a306b6;
     --secondary-color: #FAF45E;
@@ -167,6 +171,7 @@ nav {
 .commentInput {
     width: 80%;
     margin-right: .3rem;
+    padding: .2rem;
 }
 
 .commentInput::placeholder {
@@ -206,4 +211,5 @@ nav {
 .commentText {
     margin: 0;
     padding: .2rem;
+    overflow-wrap: anywhere;
 }
