@@ -124,40 +124,18 @@ const commentsPost3 = [
 ]
 
 // Ajoute ou retire la classe visible aux éléments visés
-function visible(hr, commentsContainer) {
+function visible(commentsContainer) {
     commentsContainer.classList.toggle('visible');
-    hr.classList.toggle('visible');
 }
 
+// Appel de la fonction qui créée la section commentaire
+createCommentsSection();
 
-// Création de chaque espace commentaire
-const posts = document.querySelectorAll('.post');
-posts.forEach((post, index) => {
-    const hr = document.createElement('hr');
-    hr.classList.add('commentHr');
-    post.appendChild(hr);
-    const commentsContainer = document.createElement('div');
-    commentsContainer.classList.add('commentsContainer');
-    post.appendChild(commentsContainer);
-    const comments = commentsSelection(index);
-    // Affichage du compteur de commentaires
-    buttonComments[index].innerHTML = `${comments.length} Commentaires`;
-    // Création du champ de saisie d'un nouveau commentaire
-    const input = document.createElement('div');
-    input.classList.add('inputDiv');
-    commentsContainer.appendChild(input);
-    const commentInput = document.createElement('textarea');
-    commentInput.classList.add('commentInput');
-    commentInput.placeholder = "write a new comment";
-    input.appendChild(commentInput);
-    const submitButton = document.createElement('button');
-    submitButton.classList.add('buttonSubmit', 'basicStyleButton');
-    submitButton.innerText = "Submit";
-    input.appendChild(submitButton);
-    // Selectionne les commentaires à afficher en fonction de l'index du post
+// Insère les commentaires existants dans leur post respectif
+function insertComments(commentsContainer, comments) {
     comments.forEach(comment => {
         // Création des éléments pour chaque commentaire à afficher
-        const commentBox = document.createElement('div');
+        const commentBox = document.createElement('article');
         commentBox.classList.add('commentBox');
         commentsContainer.appendChild(commentBox);
         const commentProfile = document.createElement('div');
@@ -179,7 +157,41 @@ posts.forEach((post, index) => {
         commentText.innerText = comment.comment;
         commentBody.appendChild(commentText);
     })
-})
+}
+
+/*
+// Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
+function createCommentsSectionHeader() {
+
+}
+*/
+
+function createCommentsSection() {
+    const posts = document.querySelectorAll('.post');
+    posts.forEach((post, index) => {
+        const commentsContainer = document.createElement('section');
+        commentsContainer.classList.add('commentsContainer');
+        post.appendChild(commentsContainer);
+        const comments = commentsSelection(index);
+        // Affichage du compteur de commentaires
+        buttonComments[index].innerHTML = `${comments.length} Commentaires`;
+        // Création du champ de saisie d'un nouveau commentaire
+        const commentsSectionHeader = document.createElement('div');
+        commentsSectionHeader.classList.add('commentsHeader');
+        commentsContainer.appendChild(commentsSectionHeader);
+        const commentInput = document.createElement('textarea');
+        commentInput.classList.add('commentInput');
+        commentInput.placeholder = "write a new comment";
+        commentsSectionHeader.appendChild(commentInput);
+        const submitButton = document.createElement('button');
+        submitButton.classList.add('buttonSubmit', 'basicStyleButton');
+        submitButton.innerText = "Submit";
+        commentsSectionHeader.appendChild(submitButton);
+        insertComments(commentsContainer, comments);
+    })
+}
+
+
 
 // Permet de déclencher l'affichage de la section commentaire
 // correspondant au post lors d'un clic sur le bouton commentaire
@@ -187,8 +199,7 @@ buttonComments.forEach(button => {
     button.addEventListener('click', function () {
         const currentPost = button.closest('.post');
         const commentContainer = currentPost.querySelector('.commentsContainer');
-        const hr = currentPost.querySelector('hr');
-        visible(hr, commentContainer);
+        visible(commentContainer);
     });
 })
 
