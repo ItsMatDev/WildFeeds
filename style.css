@@ -21,6 +21,7 @@ body {
     flex-direction: column;
     align-items: center;
     animation-delay: 500ms;
+    background-color: var(--background-primary);
 }
 
 nav {
@@ -29,12 +30,58 @@ nav {
     border: 1px solid black;
     background-color: var(--primary-color);
     margin-bottom: 1rem;
+    display: flex;
+
+}
+
+.wildfeedsLogo {
+    width: 12%;
+    height: 80%;
+
+}
+
+.wildfeedsTitle {
+    color: var(--secondary-color);
+    font-size: 100%;
+
+}
+
+.navBarElements {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+}
+
+li {
+    display: flex;
+    align-items: center;
+
+}
+
+.loggedUserName {
+    color: var(--secondary-color);
+    font-size: 100%;
+
+}
+
+.mainUserLogo {
+    width: 1.7rem;
+    height: 1.7rem;
+    border: 2px solid #FAF45E;
+    border-radius: 10px;
+    margin-inline: 0.8rem;
+    margin-right: 0rem;
+
 }
 
 .createPost {
     border: 1px solid black;
     border-radius: 10px;
     padding: 0.5rem;
+
 }
 
 .basicStyleButton {
@@ -48,6 +95,7 @@ nav {
     margin-block: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
+
 }
 
 .post {
