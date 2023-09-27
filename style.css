@@ -146,6 +146,7 @@ nav {
 .commentsContainer {
     height: auto;
     display: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .commentBox {
@@ -154,17 +155,13 @@ nav {
     display: flex;
 }
 
-.commentHr {
-    display: none;
-}
-
 .visible {
     display: block;
 }
 
-.inputDiv {
+.commentsHeader {
     display: flex;
-    margin-left: auto;
+    margin: .5rem 0 0 auto;
     width: 80%;
 }
 
