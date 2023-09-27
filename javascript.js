@@ -1,52 +1,103 @@
-const post = document.querySelector('.post')
-const emptyPost = post.cloneNode(true)
-const emptyPostContentText = emptyPost.querySelector('.postContentText')
-const emptyPostContentPicture = emptyPost.querySelector('.postContentPicture')
-const emptyPostShareButton = emptyPost.querySelector('.buttonShare')
-
-const createNewPost = document.querySelector('.createPost')
-
-createNewPost.addEventListener("click", (event) => {
-    document.body.insertBefore(emptyPost, createNewPost.nextSibling)
-
-    const inputElement = document.createElement('input');
-    const inputImageSource = document.createElement('input')
-    inputElement.type = 'text'
-    emptyPostContentText.innerHTML = ""
-    emptyPostContentText.appendChild(inputElement)
-    inputElement.placeholder = "Write your text here"
-    emptyPostContentText.appendChild(inputImageSource)
-    inputImageSource.placeholder = "Put your url image here"
-    emptyPostContentPicture.src = ""
-    emptyPostContentPicture.alt = ""
-    emptyPostShareButton.innerHTML = "Create"
-
-    emptyPostShareButton.addEventListener("click", (event) => {
-
-        // Récupérez la valeur de l'input
-        const inputValue = inputElement.value;
-        const inputImageValue = inputImageSource.value
-
-        // Mettez à jour l'innerHTML de .postContentText avec la valeur de l'input
-        emptyPostContentText.innerHTML = inputValue;
-        emptyPostContentPicture.src = inputImageValue
-    })
-})
+const createPostButton = document.querySelectorAll('.createPost');
+const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
+const buttonShare = document.querySelectorAll('.buttonShare');
+let numberOfShare = 0
 
 
 
 
 
+function setButtonSettings(button) {
 
-const buttonShare = document.querySelector('.buttonShare3')
+    button.forEach((button) => {
+        button.addEventListener('click', () => {
+            const parentPost = button.closest('.post');
+            document.body.removeChild(parentPost);
+        });
+    });
+}
 
-buttonShare.addEventListener("click", (event) => {
+function setButtonShare(button) {
+    button.forEach((button) => {
+        button.addEventListener('click', () => {
+            const parentPost = button.closest('.post');
 
-    const post = document.querySelector('.post3');
-    const postShared = post.cloneNode(true);
-    document.body.insertBefore(postShared, createNewPost.nextSibling);
+            const sharedPost = parentPost.cloneNode(true);
+            document.body.insertBefore(sharedPost, createPostButton[0].nextSibling);
+            const buttonSetting = sharedPost.querySelectorAll('.buttonSettingsPicture');
+            setButtonSettings(buttonSetting);
 
-})
+            const parentPostButtonShare = parentPost.querySelector('.buttonShare');
+
+            if (!parentPostButtonShare.dataset.shareCount) {
+                parentPostButtonShare.dataset.shareCount = 1;
+            } else {
+                parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
+            }
+
+            parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
+
+
+
+
+        });
+    });
+}
+
+setButtonSettings(buttonSettings);
+setButtonShare(buttonShare);
+
+
+
+createPostButton.forEach((createPostButton) => {
+    createPostButton.addEventListener('click', function () {
+
+        const post = document.querySelector('.post');
+        const emptyPost = post.cloneNode(true);
+        const inputElement = document.createElement('input');
+        const inputImageSource = document.createElement('input');
+        const buttonSettingNewPost = emptyPost.querySelectorAll('.buttonSettingsPicture');
+        const buttonShareNewPost = emptyPost.querySelectorAll('.buttonShare')
+
+        inputElement.type = 'text';
+        emptyPost.querySelector('.postContentText').innerHTML = "";
+        emptyPost.querySelector('.postContentText').appendChild(inputElement);
+        inputElement.placeholder = "Write your text here";
+        emptyPost.querySelector('.postContentText').appendChild(inputImageSource);
+        inputImageSource.placeholder = "Put your image URL here";
+        emptyPost.querySelector('.postContentPicture').src = "";
+        emptyPost.querySelector('.postContentPicture').alt = "";
+        const buttonShare = emptyPost.querySelector('.buttonShare');
+        const buttonCreate = buttonShare.cloneNode(true);
+        const buttonBox = emptyPost.querySelector('.buttonBox');
+        buttonBox.appendChild(buttonCreate);
+        buttonCreate.innerHTML = "Create";
+        buttonCreate.classList.remove("buttonShare");
+        buttonCreate.classList.add("buttonCreate");
+        buttonCreate.classList.add("basicStyleButton");
+
+
+
+
+        buttonCreate.addEventListener("click", () => {
+            const inputValue = inputElement.value;
+            const inputImageValue = inputImageSource.value;
+            const postContentText = emptyPost.querySelector('.postContentText');
+            const postContentPicture = emptyPost.querySelector('.postContentPicture');
+
+            postContentText.innerHTML = inputValue;
+            postContentPicture.src = inputImageValue;
+            buttonCreate.style.display = 'none';
+        });
+
+        document.body.insertBefore(emptyPost, createPostButton.nextSibling);
+
+        setButtonSettings(buttonSettingNewPost);
+        setButtonShare(buttonShareNewPost);
+    });
+});
+
+
 
 // Gestion de l'espace commentaires
 
@@ -182,5 +233,4 @@ const commentText = document.createElement('p');
 commentText.classList.add('commentText');
 commentText.innerText = comment.comment;
 commentBody.appendChild(commentText);
-
 
