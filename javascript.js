@@ -31,13 +31,11 @@
 
                 if (!parentPostButtonShare.dataset.shareCount) {
                     parentPostButtonShare.dataset.shareCount = 1;
+                    parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Share";
                 } else {
-                    parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
+                     parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
+                    parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
                 }
-
-                parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
-
-
 
 
             });
