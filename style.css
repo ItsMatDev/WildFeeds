@@ -68,7 +68,7 @@ a {
 .mainUserLogo {
     width: 1.7rem;
     height: 1.7rem;
-    border: 2px solid #FAF45E;
+    border: 2px solid var(--secondary-color);
     border-radius: 10px;
     margin-inline: 0.8rem;
     margin-right: 0rem;
@@ -84,12 +84,12 @@ a {
 
 .basicStyleButton {
     border-radius: 28px;
-    text-shadow: 1px 1px 3px #FAF45E;
-    box-shadow: 0px 1px 1px #A306B6;
-    color: #FAF45E;
-    background: #A306B6;
+    text-shadow: 1px 1px 3px var(--secondary-color);
+    box-shadow: 0px 1px 1px var(--primary-color);
+    color: var(--secondary-color);
+    background: var(--primary-color);
     padding: 10px 20px 10px 20px;
-    border: solid #FAF45E 2px;
+    border: solid var(--secondary-color) 2px;
     margin-block: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
@@ -113,7 +113,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #a306b6;
+    background-color: var(--primary-color);
     border-bottom: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -129,14 +129,14 @@ a {
 .userLogo {
     width: 1.2rem;
     height: 1.2rem;
-    border: 2px solid #FAF45E;
+    border: 2px solid var(--secondary-color);
     border-radius: 10px;
     margin-inline: 0.8rem;
 }
 
 .userName {
     font-size: 1rem;
-    color: #FAF45E;
+    color: var(--secondary-color);
 }
 
 .buttonSettings {
@@ -144,8 +144,8 @@ a {
     width: 2rem;
     height: 2rem;
     border-radius: 10px;
-    border: 2px solid #FAF45E;
-    background-color: #a306b6;
+    border: 2px solid var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 .buttonSettings:hover {
@@ -154,7 +154,7 @@ a {
 }
 
 .buttonSettings:active {
-    box-shadow: 1px 1px 5px #FAF45E;
+    box-shadow: 1px 1px 5px var(--secondary-color);
 
 }
 
@@ -226,7 +226,7 @@ a {
 .commentPicture {
     width: 2rem;
     height: 2rem;
-    border: 2px solid #FAF45E;
+    border: 2px solid var(--secondary-color);
     border-radius: 50px;
     margin-inline: 0.8rem;
 }
