@@ -72,7 +72,6 @@
             buttonCreate.classList.add("basicStyleButton");
             buttonCreate.innerHTML = "Create";
 
-            // Done
 
             // Create the button to share post
 
@@ -82,12 +81,10 @@
             buttonShare.classList.add("buttonShare");
             buttonShare.classList.add("basicStyleButton");
             buttonShare.innerHTML = " Share!"
-
-            
-
-            // Done
             
             buttonBox.appendChild(buttonCreate);
+
+            // Button Create function on click
 
 
             buttonCreate.addEventListener("click", () => {
