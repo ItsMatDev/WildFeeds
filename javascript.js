@@ -264,3 +264,28 @@ function buttonCommentIncrement(commentsContainer) {
     const buttonComment = currentPost.querySelector('.buttonComments');
     buttonComment.innerText = `${commentCount} Commentaires`;
 }
+
+
+//Like button
+const likeButton = document.querySelector(".buttonLike");
+const likePic = document.querySelector(".likePicture");
+
+likePic.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('Premier if');
+    }
+    else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
+        likePic.alt = "Red thumbs up you unliked this post";
+        console.log('Second If');
+    }
+    else {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('In the else');
+    }
+});
