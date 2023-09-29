@@ -130,7 +130,7 @@ a {
 }
 
 .post {
-    width:100%;
+    width: 100%;
     border: 1px solid black;
     border-radius: 10px;
     background-color: var(--background-primary);
@@ -290,7 +290,7 @@ a {
 }
 
 .deleteButton {
-    display: block;
+    display: none;
     float: right;
     height: 1.5rem;
     width: 1.5rem;
