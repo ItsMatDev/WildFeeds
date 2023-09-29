@@ -28,11 +28,13 @@ About task repartition :
 | buttonShareFunction     | [ ]       | [ ]     | [ ]     | 
 | buttonCommentDisplay    | [ ]       | [ ]     | [x]     | 
 | buttonCommentFunction   | [ ]       | [ ]     | [x]     |
-| newCommentFunction      | [ ]       | [ ]     | [x]     | 
+| newCommentFunction      | [ ]       | [ ]     | [x]     |
+| deleteNewComment        | [ ]       | [ ]     | [x]     |
 | newCommentDisplay       | [ ]       | [ ]     | [ ]     |
-| buttonLike              | [ ]       | [ ]     | [ ]     |
-| buttonLikeFunction      | [ ]       | [ ]     | [ ]     |
-| buttonLikeDisplay       | [ ]       | [ ]     | [ ]     |
+| buttonLike              | [ ]       | [x]     | [ ]     |
+| buttonLikeFunction      | [ ]       | [x]     | [ ]     |
+| ButtonLikeCount         | [ ]       | [x]     | [ ]     | 
+| buttonLikeDisplay       | [ ]       | [x]     | [ ]     |
 | footerContent           | [ ]       | [ ]     | [ ]     | 
 | footerDisplay           | [ ]       | [ ]     | [ ]     | 
 
