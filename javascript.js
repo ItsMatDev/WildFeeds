@@ -160,14 +160,82 @@ const commentsPost3 = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 3" },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." }
 ]
-
-// Ajoute ou retire la classe visible aux éléments visés
-function visible(commentsContainer) {
-    commentsContainer.classList.toggle('visible');
-}
+const currentUser = [
+    { username: "Current User", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
+]
 
 // Appel de la fonction qui créée la section commentaire
 createCommentsSection();
+// Initialisation des boutons commentaires
+setExistingCommentsButtons(buttonComments);
+
+// Initialisation des boutons submit
+const buttonSubmit = document.querySelectorAll('.buttonSubmit');
+setSubmitButtons(buttonSubmit);
+
+// Créée les sections commentaires pour chaque post
+function createCommentsSection() {
+    const posts = document.querySelectorAll('.post');
+    posts.forEach((post, index) => {
+        const commentsContainer = document.createElement('section');
+        commentsContainer.classList.add('commentsContainer');
+        post.appendChild(commentsContainer);
+        const comments = commentsSelection(index);
+        // Création du champ de saisie d'un nouveau commentaire
+        createCommentsSectionHeader(commentsContainer);
+        // Insertion des commentaires déjà existants sur chaque post
+        insertComments(commentsContainer, comments);
+        // Affichage du compteur de commentaires
+        commentsCount(commentsContainer);
+    })
+}
+
+// Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
+function createCommentsSectionHeader(commentsContainer) {
+    const commentsSectionHeader = document.createElement('div');
+    commentsSectionHeader.classList.add('commentsHeader');
+    commentsContainer.appendChild(commentsSectionHeader);
+    const commentInput = document.createElement('input');
+    commentInput.classList.add('commentInput');
+    commentInput.placeholder = "write a new comment";
+    commentsSectionHeader.appendChild(commentInput);
+    const submitButton = document.createElement('button');
+    submitButton.classList.add('buttonSubmit', 'basicStyleButton');
+    submitButton.innerText = "Submit";
+    commentsSectionHeader.appendChild(submitButton);
+}
+
+/* Tests
+// Créée les éléments nécessaires à l'ajout d'un nouveau commentaire | Test
+function createCommentsSectionHeader(commentsContainer) {
+    const commentsSectionForm = document.createElement('form');
+    commentsSectionForm.classList.add('commentsHeader');
+    commentsContainer.appendChild(commentsSectionForm);
+    const commentLabel = document.createElement('label');
+    //commentInput.classList.add('commentInput');
+    //commentInput.placeholder = "write a new comment";
+    commentsSectionForm.appendChild(commentLabel);
+    const userInput = document.createElement('input');
+    userInput.setAttribute('type', 'text');
+    userInput.classList.add('commentInput');
+    userInput.placeholder = "write a new comment";
+    commentLabel.appendChild(userInput);
+    const submitButton = document.createElement('input');
+    submitButton.setAttribute('type', 'submit');
+    submitButton.setAttribute('value', 'Comment');
+    submitButton.classList.add('buttonSubmit', 'basicStyleButton');
+    commentsSectionForm.appendChild(submitButton);
+}
+
+function submitTest() {
+    const commentsContainer = button.closest('.commentsContainer');
+    const comment = commentsContainer.querySelector('textarea').value;
+    button.previousSibling.value = "";
+    firstComment = commentsContainer.querySelector('.commentBox');
+    addNewComment(commentsContainer, comment, firstComment);
+    commentsCount(commentsContainer);
+}
+*/
 
 // Insère les commentaires existants dans leur post respectif
 function insertComments(commentsContainer, comments) {
@@ -197,49 +265,39 @@ function insertComments(commentsContainer, comments) {
     })
 }
 
-/*
-// Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
-function createCommentsSectionHeader() {
-
+// Ajoute ou retire la classe visible aux éléments visés
+function visible(commentsContainer) {
+    commentsContainer.classList.toggle('visible');
 }
-*/
-
-function createCommentsSection() {
-    const posts = document.querySelectorAll('.post');
-    posts.forEach((post, index) => {
-        const commentsContainer = document.createElement('section');
-        commentsContainer.classList.add('commentsContainer');
-        post.appendChild(commentsContainer);
-        const comments = commentsSelection(index);
-        // Affichage du compteur de commentaires
-        buttonComments[index].innerHTML = `${comments.length} Commentaires`;
-        // Création du champ de saisie d'un nouveau commentaire
-        const commentsSectionHeader = document.createElement('div');
-        commentsSectionHeader.classList.add('commentsHeader');
-        commentsContainer.appendChild(commentsSectionHeader);
-        const commentInput = document.createElement('textarea');
-        commentInput.classList.add('commentInput');
-        commentInput.placeholder = "write a new comment";
-        commentsSectionHeader.appendChild(commentInput);
-        const submitButton = document.createElement('button');
-        submitButton.classList.add('buttonSubmit', 'basicStyleButton');
-        submitButton.innerText = "Submit";
-        commentsSectionHeader.appendChild(submitButton);
-        insertComments(commentsContainer, comments);
-    })
-}
-
-
 
 // Permet de déclencher l'affichage de la section commentaire
 // correspondant au post lors d'un clic sur le bouton commentaire
-buttonComments.forEach(button => {
+function initialiseCommentsButtons(buttonComments) {
+    buttonComments.forEach(button => {
+        button.addEventListener('click', function () {
+            const currentPost = button.closest('.post');
+            const commentContainer = currentPost.querySelector('.commentsContainer');
+            visible(commentContainer);
+        });
+    })
+}
+
+// Initialise l'ensemble des boutons commentaires
+function setExistingCommentsButtons(buttonsComments) {
+    buttonsComments.forEach(button => {
+        setCommentButton(button);
+    })
+}
+
+// Initialise un bouton commentaire
+function setCommentButton(button) {
     button.addEventListener('click', function () {
         const currentPost = button.closest('.post');
         const commentContainer = currentPost.querySelector('.commentsContainer');
         visible(commentContainer);
     });
-})
+}
+
 
 // Renvoie le tableau d'objets commentaires en fonction de l'index
 function commentsSelection(index) {
@@ -253,26 +311,23 @@ function commentsSelection(index) {
     }
 }
 
-// Création d'un nouveau commentaire
-const buttonSubmit = document.querySelectorAll('.buttonSubmit');
-const currentUser = [
-    { username: "Current User", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
-]
-
-// Evênement clic sur le bouton submit, créée un nouveau commentaire
-buttonSubmit.forEach(button => {
-    button.addEventListener('click', function () {
-        const commentsContainer = button.closest('.commentsContainer');
-        const comment = commentsContainer.querySelector('textarea').value;
-        button.previousSibling.value = "";
-        firstComment = commentsContainer.querySelector('.commentBox');
-        createComment(commentsContainer, comment, firstComment);
-        buttonCommentIncrement(commentsContainer);
+// Initialise l'ensemble des boutons submit 
+function setSubmitButtons(buttons) {
+    // Evênement clic sur le bouton submit, créée un nouveau commentaire
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const commentsContainer = button.closest('.commentsContainer');
+            const comment = commentsContainer.querySelector('input').value;
+            button.previousSibling.value = "";
+            firstComment = commentsContainer.querySelector('.commentBox');
+            addNewComment(commentsContainer, comment, firstComment);
+            commentsCount(commentsContainer);
+        })
     })
-})
+}
 
 // Fonction permettant la création des éléments composant le nouveau commentaire
-function createComment(commentsContainer, comment, firstComment) {
+function addNewComment(commentsContainer, comment, firstComment) {
     const commentBox = document.createElement('div');
     commentBox.classList.add('commentBox');
     commentsContainer.insertBefore(commentBox, firstComment);
@@ -296,9 +351,37 @@ function createComment(commentsContainer, comment, firstComment) {
     commentBody.appendChild(commentText);
 }
 
-function buttonCommentIncrement(commentsContainer) {
+// Permet de calculer le nombre de commentaires et l'affichage sur le bouton
+function commentsCount(commentsContainer) {
     const currentPost = commentsContainer.closest('.post');
     const commentCount = currentPost.querySelectorAll('.commentBox').length;
     const buttonComment = currentPost.querySelector('.buttonComments');
     buttonComment.innerText = `${commentCount} Commentaires`;
 }
+
+
+
+//Like button
+const likeButton = document.querySelector(".buttonLike");
+const likePic = document.querySelector(".likePicture");
+
+likePic.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('Premier if');
+    }
+    else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
+        likePic.alt = "Red thumbs up you unliked this post";
+        console.log('Second If');
+    }
+    else {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('In the else');
+    }
+});
+

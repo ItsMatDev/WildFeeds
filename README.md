@@ -8,12 +8,12 @@ We decided to base our theme on the wild code school.
 
 About task repartition :
 
-| Prénom                  | Matthieu  | P. A.   | Lucas   | 
+| Task \  Name            | Matthieu  | P. A.   | Lucas   | 
 | ------                  | -------   | ------- | ------- | 
 | headerTitle             | [ ]       | [x]     | [ ]     | 
 | headerLogo              | [ ]       | [x]     | [ ]     | 
 | headerNav               | [ ]       | [x]     | [ ]     | 
-| headerProfil            | [ ]       | [x]     | [ ]     | 
+| headerProfilName        | [ ]       | [x]     | [ ]     | 
 | headerProfilPicture     | [ ]       | [x]     | [ ]     | 
 | headerDisplay           | [ ]       | [x]     | [ ]     |
 | buttonNewPost           | [x]       | [ ]     | [ ]     | 

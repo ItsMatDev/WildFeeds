@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'FilsonPro';
+    src: url(assets/fonts/FilsonPro-Regular.ttf) format(trueType);
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url(assets/fonts/ProximaNova-Regular.otf) format(openType);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -6,6 +16,10 @@
     --primary-color: #a306b6;
     --secondary-color: #FAF456;
     --background-primary: #ebf2fa;
+    --light: white;
+    --dark: black;
+    --title-font: "FilsonPro", sans-serif;
+    --text-font: "ProximaNova", sans-serif;
 }
 
 @keyframes slide-in {
@@ -26,12 +40,16 @@ body {
     align-items: center;
     animation-delay: 500ms;
     background-color: var(--background-primary);
+    font-family: var(--text-font);
+    margin: 0;
 }
 
 header {
     width: 100%;
-    height: 2rem;
+    height: 2, 5rem;
     border: 1px solid black;
+    height: 2rem;
+    border: 1px solid var(--dark);
     background-color: var(--primary-color);
     margin-bottom: 1rem;
     display: flex;
@@ -39,18 +57,22 @@ header {
     top: 0;
     padding-left: 0;
     padding-right: 0;
+    justify-content: space-between;
     align-items: center;
 }
 
 .wildfeedsLogo {
     width: 12%;
     height: 80%;
+    margin-left: 5px;
 
 }
 
 .wildfeedsTitle {
     color: var(--secondary-color);
     font-size: 100%;
+    padding-left: 2px;
+
 
 }
 
@@ -61,22 +83,28 @@ a {
 
 .loggedUserName {
     color: var(--secondary-color);
-    font-size: 100%;
+    font-size: 80%;
+    align-content: center;
 
 }
 
 .mainUserLogo {
+
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #FAF45E;
     width: 1.7rem;
     height: 1.7rem;
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
     margin-inline: 0.8rem;
-    margin-right: 0rem;
+    margin-right: 5px;
+    align-content: center;
 
 }
 
 .createPost {
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     border-radius: 10px;
     padding: 0.5rem;
 
@@ -97,16 +125,14 @@ a {
 }
 
 .post {
-    width: 100%;
     border: 1px solid black;
     border-radius: 10px;
     background-color: var(--background-primary);
-    margin-block: 1rem;
+    margin: 1rem .5rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     animation-name: slide-in;
     animation-duration: 2s;
     animation-delay: 0s;
-
 }
 
 .sharedPostContainer {  
@@ -198,7 +224,7 @@ a {
 
 .commentBox {
     min-height: 50px;
-    margin: .5rem 0.2rem;
+    margin: 0 .3rem .5rem;
     display: flex;
 }
 
@@ -208,14 +234,18 @@ a {
 
 .commentsHeader {
     display: flex;
-    margin: .5rem 0 0 auto;
+    margin: 0 0 0 auto;
     width: 80%;
 }
 
 .commentInput {
     width: 80%;
     margin-right: .3rem;
-    padding: .2rem;
+    padding: .5rem;
+    margin-block: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: var(--background-primary);
 }
 
 .commentInput::placeholder {
@@ -230,7 +260,7 @@ a {
 .commentPicture {
     width: 2rem;
     height: 2rem;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 50px;
     margin-inline: 0.8rem;
 }
@@ -256,4 +286,16 @@ a {
     margin: 0;
     padding: .2rem;
     overflow-wrap: anywhere;
+}
+
+
+.likePicture {
+    width: 2rem;
+h1,
+h3 {
+    font-family: var(--title-font);
+}
+
+button {
+    font-family: var(--text-font);
 }
