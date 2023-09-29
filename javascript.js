@@ -5,7 +5,11 @@ const buttonShare = document.querySelectorAll('.buttonShare');
 function createElementHTML(elementHTML, className, text = null) {
     const element = document.createElement(`${elementHTML}`)
     element.classList.add(`${className}`)
-    element.innerHTML = `${text}`
+    if (text === null) {
+        text = "";
+    } else {
+        element.innerHTML = `${text}`
+    }
     return element;
 }
 
@@ -158,7 +162,7 @@ const commentsPost3 = [
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." }
 ]
 const currentUser = [
-    { username: "Current User", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
+    { username: "Pierre Adrien", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
 ]
 
 // Appel de la fonction qui créée la section commentaire
@@ -174,8 +178,7 @@ setSubmitButtons(buttonSubmit);
 function createCommentsSection() {
     const posts = document.querySelectorAll('.post');
     posts.forEach((post, index) => {
-        const commentsContainer = document.createElement('section');
-        commentsContainer.classList.add('commentsContainer');
+        const commentsContainer = createElementHTML('section', 'commentsContainer');
         post.appendChild(commentsContainer);
         const comments = commentsSelection(index);
         // Création du champ de saisie d'un nouveau commentaire
@@ -189,11 +192,9 @@ function createCommentsSection() {
 
 // Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
 function createCommentsSectionHeader(commentsContainer) {
-    const commentsSectionHeader = document.createElement('div');
-    commentsSectionHeader.classList.add('commentsSectionHeader');
+    const commentsSectionHeader = createElementHTML('div', 'commentsSectionHeader');
     commentsContainer.appendChild(commentsSectionHeader);
-    const commentInput = document.createElement('input');
-    commentInput.classList.add('commentInput');
+    const commentInput = createElementHTML('input', 'commentInput');
     commentInput.placeholder = "write a new comment";
     commentsSectionHeader.appendChild(commentInput);
     const submitButton = document.createElement('button');
@@ -203,34 +204,43 @@ function createCommentsSectionHeader(commentsContainer) {
 }
 
 // Insère les commentaires existants dans leur post respectif
-function insertComments(commentsContainer, comments) {
+function insertComments(commentContainer, comments) {
     comments.forEach(comment => {
         // Création des éléments pour chaque commentaire à afficher
-        const commentBox = document.createElement('article');
-        commentBox.classList.add('commentBox');
-        commentsContainer.appendChild(commentBox);
-        const commentProfile = document.createElement('div');
-        commentProfile.classList.add('commentProfile');
-        commentBox.appendChild(commentProfile);
-        const profilePicture = document.createElement('img');
-        profilePicture.src = comment.picture;
-        profilePicture.classList.add('commentPicture');
-        commentProfile.appendChild(profilePicture);
-        const commentBody = document.createElement('div');
-        commentBody.classList.add('commentBody');
-        commentBox.appendChild(commentBody);
-        const commentHeader = document.createElement('div');
-        commentHeader.classList.add('commentHeader');
-        commentBody.appendChild(commentHeader);
-        const profileName = document.createElement('h3');
-        profileName.classList.add('commentName');
-        profileName.innerText = comment.name;
-        commentHeader.appendChild(profileName);
-        const commentText = document.createElement('p');
-        commentText.classList.add('commentText');
-        commentText.innerText = comment.comment;
-        commentBody.appendChild(commentText);
+        commentContainer.appendChild(createCommentElements(comment.name, comment.comment, comment.picture));
     })
+}
+
+function createCommentElements(username, comment, picture) {
+    const commentBox = createElementHTML('article', 'commentBox');
+    const commentProfile = createElementHTML('div', 'commentProfile');
+    commentBox.appendChild(commentProfile);
+    const profilePicture = createElementHTML('img', 'commentPicture');
+    profilePicture.src = picture;
+    commentProfile.appendChild(profilePicture);
+    const commentBody = createElementHTML('div', 'commentBody');
+    commentBox.appendChild(commentBody);
+    const commentHeader = createElementHTML('div', 'commentHeader');
+    commentBody.appendChild(commentHeader);
+    const profileName = createElementHTML('h3', 'commentName', username);
+    commentHeader.appendChild(profileName);
+    const deleteButton = createElementHTML('button', 'deleteButton');
+    commentHeader.appendChild(deleteButton);
+    const deleteButtonImage = createElementHTML('img', 'deleteButtonImage');
+    deleteButtonImage.src = "assets/logo/delete.svg";
+    deleteButton.appendChild(deleteButtonImage);
+    const commentText = createElementHTML('p', 'commentText', comment);
+    commentBody.appendChild(commentText);
+    return commentBox;
+}
+
+// Fonction permettant la création des éléments composant le nouveau commentaire
+function addNewComment(commentsContainer, comment, firstComment) {
+    const commentBox = createCommentElements(currentUser[0].username, comment, currentUser[0].profilePicture);
+    const deleteButton = commentBox.querySelector('.deleteButton');
+    deleteButton.style.display = 'block';
+    setDeleteButton(deleteButton, commentsContainer, commentBox);
+    commentsContainer.insertBefore(commentBox, firstComment);
 }
 
 // Ajoute ou retire la classe visible aux éléments visés
@@ -266,6 +276,12 @@ function setCommentButton(button) {
     });
 }
 
+function setDeleteButton(button, commentContainer, comment) {
+    button.addEventListener('click', function (event) {
+        commentContainer.removeChild(comment);
+        commentsCount(commentContainer);
+    })
+}
 
 // Renvoie le tableau d'objets commentaires en fonction de l'index
 function commentsSelection(index) {
@@ -292,41 +308,6 @@ function setSubmitButtons(buttons) {
             commentsCount(commentsContainer);
         })
     })
-}
-
-// Fonction permettant la création des éléments composant le nouveau commentaire
-function addNewComment(commentsContainer, comment, firstComment) {
-    const commentBox = document.createElement('div');
-    commentBox.classList.add('commentBox');
-    commentsContainer.insertBefore(commentBox, firstComment);
-    const commentProfile = document.createElement('div');
-    commentProfile.classList.add('commentProfile');
-    commentBox.appendChild(commentProfile);
-    const profilePicture = document.createElement('img');
-    profilePicture.src = currentUser[0].profilePicture;
-    profilePicture.classList.add('commentPicture');
-    commentProfile.appendChild(profilePicture);
-    const commentBody = document.createElement('div');
-    commentBody.classList.add('commentBody');
-    commentBox.appendChild(commentBody);
-    const commentHeader = document.createElement('div');
-    commentHeader.classList.add('commentHeader');
-    commentBody.appendChild(commentHeader);
-    const profileName = document.createElement('h3');
-    profileName.classList.add('commentName');
-    profileName.innerText = currentUser[0].username;
-    commentHeader.appendChild(profileName);
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('deleteButton');
-    commentHeader.appendChild(deleteButton);
-    const deleteButtonImage = document.createElement('img');
-    deleteButtonImage.src = "assets/logo/delete.svg";
-    deleteButtonImage.classList.add('deleteButtonImage');
-    deleteButton.appendChild(deleteButtonImage)
-    const commentText = document.createElement('p');
-    commentText.classList.add('commentText');
-    commentText.innerText = comment;
-    commentBody.appendChild(commentText);
 }
 
 // Permet de calculer le nombre de commentaires et l'affichage sur le bouton
