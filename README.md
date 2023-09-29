@@ -2,13 +2,40 @@
 
 ## First project at the wild code school
 
-Task repartition :
+The main goals of the project is to reproduct a wall of a social network.  
+We decided to base our theme on the wild code school.
 
-| Prénom    | navBar  | Footer  | posts   | likePost| sharePost | comsButton    | comsDisplay | 
-| ------    | ------- | ------- | ------- | ------- | -------   | -------       | ------- |
-| Matthieu  | [ ]     | [ ]     | [x]     | [ ]     | [ ]       | [ ]           | [ ]     | 
-| P. A.     | [ ]     | [ ]     | [ ]     | [ ]     | [ ]       | [ ]           | [ ]     | 
-| Lucas     | [ ]     | [ ]     | [ ]     | [ ]     | [ ]       | [ ]           | [ ]     |
+
+About task repartition :
+
+| Task \  Name            | Matthieu  | P. A.   | Lucas   | 
+| ------                  | -------   | ------- | ------- | 
+| headerTitle             | [ ]       | [x]     | [ ]     | 
+| headerLogo              | [ ]       | [x]     | [ ]     | 
+| headerNav               | [ ]       | [x]     | [ ]     | 
+| headerProfilName        | [ ]       | [x]     | [ ]     | 
+| headerProfilPicture     | [ ]       | [x]     | [ ]     | 
+| headerDisplay           | [ ]       | [x]     | [ ]     |
+| buttonNewPost           | [x]       | [ ]     | [ ]     | 
+| buttonNewPostFunction   | [x]       | [ ]     | [ ]     | 
+| buttonNewPostDisplay    | [ ]       | [ ]     | [ ]     | 
+| newPostContent          | [ ]       | [ ]     | [ ]     | 
+| newPostDisplay          | [ ]       | [ ]     | [ ]     |
+| postAnimation           | [ ]       | [ ]     | [ ]     |
+| buttonSettingsDisplay   | [ ]       | [ ]     | [ ]     | 
+| buttonSettingsFunction  | [x]       | [ ]     | [ ]     | 
+| butonnShareDisplay      | [ ]       | [ ]     | [ ]     | 
+| buttonShareFunction     | [ ]       | [ ]     | [ ]     | 
+| buttonCommentDisplay    | [ ]       | [ ]     | [x]     | 
+| buttonCommentFunction   | [ ]       | [ ]     | [x]     |
+| newCommentFunction      | [ ]       | [ ]     | [x]     | 
+| newCommentDisplay       | [ ]       | [ ]     | [ ]     |
+| buttonLike              | [ ]       | [ ]     | [ ]     |
+| buttonLikeFunction      | [ ]       | [ ]     | [ ]     |
+| buttonLikeDisplay       | [ ]       | [ ]     | [ ]     |
+| footerContent           | [ ]       | [ ]     | [ ]     | 
+| footerDisplay           | [ ]       | [ ]     | [ ]     | 
+
 
 **navbBar** : Create a navigation bar with on one side the display of the logo, the name of the website and click on both logo or name will navigate to the home (index.html). Moreover, display name of the current user and his picture on this other side of the navigation bar.
 
