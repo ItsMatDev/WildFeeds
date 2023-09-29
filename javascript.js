@@ -302,10 +302,12 @@ function setSubmitButtons(buttons) {
         button.addEventListener('click', function () {
             const commentsContainer = button.closest('.commentsContainer');
             const comment = commentsContainer.querySelector('input').value;
-            button.previousSibling.value = "";
-            firstComment = commentsContainer.querySelector('.commentBox');
-            addNewComment(commentsContainer, comment, firstComment);
-            commentsCount(commentsContainer);
+            if (!(comment === "")) {
+                button.previousSibling.value = "";
+                firstComment = commentsContainer.querySelector('.commentBox');
+                addNewComment(commentsContainer, comment, firstComment);
+                commentsCount(commentsContainer);
+            }
         })
     })
 }
