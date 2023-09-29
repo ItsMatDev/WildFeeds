@@ -2,7 +2,15 @@ const createPostButton = document.querySelectorAll('.createPost');
 const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
 const buttonShare = document.querySelectorAll('.buttonShare');
 
+function createElementHTML(elementHTML, className, text = null) {
+        const element = document.createElement(`${elementHTML}`)
+        element.classList.add(`${className}`)
+        element.innerHTML = `${text}`
+        return element;
+    }
+
 function setButtonSettings(button) {
+
 
     button.forEach((button) => {
         button.addEventListener('click', () => {
@@ -17,21 +25,39 @@ function setButtonShare(button) {
         button.addEventListener('click', () => {
             const parentPost = button.closest('.post');
 
-            const sharedPost = parentPost.cloneNode(true);
-            document.body.insertBefore(sharedPost, createPostButton[0].nextSibling);
-            const buttonSetting = sharedPost.querySelectorAll('.buttonSettingsPicture');
-            setButtonSettings(buttonSetting);
+
+                const sharedPost = parentPost.cloneNode(true);
+
+                
+                const sharedPostContainer = createElementHTML('div','sharedPostContainer');
+                console.log(sharedPost);
+                const postLogoName = parentPost.querySelector(".postHead");
+                console.log(postLogoName)
+                sharedPostContainer.appendChild(postLogoName);
+                sharedPostContainer.appendChild(sharedPost);
+                document.body.insertBefore(sharedPostContainer, sharedPost.nextSibling);
+                
+
+                document.body.insertBefore(sharedPostContainer, createPostButton[0].nextSibling);
+                const buttonSetting = sharedPostContainer.querySelectorAll('.buttonSettingsPicture');
+                setButtonSettings(buttonSetting);
+                 // button.style.display = "none";
+
 
             const parentPostButtonShare = parentPost.querySelector('.buttonShare');
 
-            if (!parentPostButtonShare.dataset.shareCount) {
-                parentPostButtonShare.dataset.shareCount = 1;
-                parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Share";
-            } else {
-                parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
-                parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
-            }
 
+                if (!parentPostButtonShare.dataset.shareCount) {
+                    parentPostButtonShare.dataset.shareCount = 1;
+                    parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Share";
+                } else {
+                    parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
+                    parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
+                }
+            
+
+
+            
 
         });
     });
@@ -73,6 +99,11 @@ createPostButton.forEach((createPostButton) => {
         const buttonShare = document.createElement('button');
 
 
+            buttonCreate.classList.add("buttonCreate");
+            buttonCreate.classList.add("basicStyleButton");
+            buttonCreate.innerHTML = "Create";  
+
+
         buttonShare.classList.add("buttonShare");
         buttonShare.classList.add("basicStyleButton");
         buttonShare.innerHTML = " Share!"
@@ -94,13 +125,21 @@ createPostButton.forEach((createPostButton) => {
             postContentPicture.classList.add("postContentPicture")
 
 
-            postContentText.innerHTML = inputTextValue;
-            postContentPicture.src = inputImageValue;
-            postContentPicture.alt = "";
-            buttonCreate.style.display = 'none';
-            buttonBox.appendChild(buttonShare);
-            postContentTextPicture.removeChild(inputText);
-            postContentTextPicture.removeChild(inputImage);
+
+                postContentText.innerHTML = inputTextValue;
+                postContentPicture.src = inputImageValue;
+                postContentPicture.alt = "";
+                buttonCreate.style.display = 'none';
+                buttonBox.appendChild(buttonShare);  
+                postContentTextPicture.removeChild(inputText);
+                postContentTextPicture.removeChild(inputImage);
+                
+                const newbuttonShare = newPost.querySelectorAll('.buttonShare');
+                
+                setButtonShare(newbuttonShare);
+
+            });
+
 
             const newbuttonShare = newPost.querySelectorAll('.buttonShare');
 
@@ -113,6 +152,7 @@ createPostButton.forEach((createPostButton) => {
         setButtonSettings(buttonSettings);
     });
 });
+
 
 
 
@@ -316,3 +356,30 @@ function commentsCount(commentsContainer) {
     const buttonComment = currentPost.querySelector('.buttonComments');
     buttonComment.innerText = `${commentCount} Commentaires`;
 }
+
+
+
+//Like button
+const likeButton = document.querySelector(".buttonLike");
+const likePic = document.querySelector(".likePicture");
+
+likePic.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('Premier if');
+    }
+    else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
+        likePic.alt = "Red thumbs up you unliked this post";
+        console.log('Second If');
+    }
+    else {
+        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+        likePic.alt = "Green thumbs up you liked this post";
+        console.log('In the else');
+    }
+});
+

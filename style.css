@@ -14,7 +14,7 @@
 
 :root {
     --primary-color: #a306b6;
-    --secondary-color: #FAF45E;
+    --secondary-color: #FAF456;
     --background-primary: #ebf2fa;
     --light: white;
     --dark: black;
@@ -46,6 +46,8 @@ body {
 
 header {
     width: 100%;
+    height: 2,5rem;
+    border: 1px solid black;
     height: 2rem;
     border: 1px solid var(--dark);
     background-color: var(--primary-color);
@@ -55,18 +57,22 @@ header {
     top: 0;
     padding-left: 0;
     padding-right: 0;
+    justify-content: space-between;
     align-items: center;
 }
 
 .wildfeedsLogo {
     width: 12%;
     height: 80%;
+    margin-left: 5px;
 
 }
 
 .wildfeedsTitle {
     color: var(--secondary-color);
     font-size: 100%;
+    padding-left: 2px;
+
 
 }
 
@@ -77,17 +83,23 @@ a {
 
 .loggedUserName {
     color: var(--secondary-color);
-    font-size: 100%;
+    font-size: 80%;
+    align-content: center;
 
 }
 
 .mainUserLogo {
+
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #FAF45E;
     width: 1.7rem;
     height: 1.7rem;
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
     margin-inline: 0.8rem;
-    margin-right: 0rem;
+    margin-right: 5px;
+    align-content: center;
 
 }
 
@@ -121,6 +133,10 @@ a {
     animation-name: slide-in;
     animation-duration: 2s;
     animation-delay: 0s;
+}
+
+.sharedPostContainer {  
+   
 }
 
 .postHead {
@@ -287,6 +303,10 @@ a {
     overflow-wrap: anywhere;
 }
 
+
+.likePicture {
+    width: 2rem;
+}
 h1,
 h3 {
     font-family: var(--title-font);
