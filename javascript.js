@@ -375,3 +375,4 @@ likePic.addEventListener('click', function (e) {
     }
 });
 
+    const likeCount = document.querySelector(".likeCount"
