@@ -64,6 +64,9 @@ function setButtonShare(button) {
             buttonComs.style.display = 'none';
             const buttonShare = sharedPostContainer.querySelector('.buttonShare');
             buttonShare.style.display = 'none';
+            const buttonSettingsParent = sharedPostContainer.querySelector('.post .buttonSettings');
+            console.log(buttonSettingsParent)
+            buttonSettingsParent.style.display = 'none';
 
 
         });
@@ -82,9 +85,14 @@ createPostButton.forEach((createPostButton) => {
         const newPost = cloneTemplate.querySelector('section')
         createPostButton.insertAdjacentElement('afterend', newPost);
 
-
+        const userName = document.querySelector('.userName')
+        userName.innerHTML = "Pierre Adrien"
         const inputText = document.createElement('input');
         const inputImage = document.createElement('input');
+        inputText.classList.add('commentInput')
+        inputImage.classList.add('commentInput')
+        inputText.style.marginBlock = "1rem"
+        inputImage.style.marginBottom = "1rem"
 
         newPost.querySelector('.postContentTextPicture').appendChild(inputText);
         inputText.placeholder = "Write your text here";
@@ -131,7 +139,7 @@ createPostButton.forEach((createPostButton) => {
             postContentPicture.src = inputImageValue;
             postContentPicture.alt = "";
             buttonCreate.style.display = 'none';
-            buttonBox.appendChild(buttonShare);
+            // buttonBox.appendChild(buttonShare);
             postContentTextPicture.removeChild(inputText);
             postContentTextPicture.removeChild(inputImage);
 

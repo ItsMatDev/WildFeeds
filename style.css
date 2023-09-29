@@ -176,7 +176,7 @@ a {
     width: 2rem;
     height: 2rem;
     border-radius: 10px;
-    border: 2px solid var(--secondary-color);
+    border: 0;
     background-color: var(--primary-color);
 }
 
@@ -191,7 +191,7 @@ a {
 }
 
 .buttonSettingsPicture {
-    width: 1rem;
+    width: 2rem;
 }
 
 
