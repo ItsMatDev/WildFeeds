@@ -2,6 +2,13 @@
     const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
     const buttonShare = document.querySelectorAll('.buttonShare');
 
+    function createElementHTML(elementHTML, className, text = null) {
+        const element = document.createElement(`${elementHTML}`)
+        element.classList.add(`${className}`)
+        element.innerHTML = `${text}`
+        return element;
+    }
+
     function setButtonSettings(button) {
 
         button.forEach((button) => {
@@ -18,9 +25,21 @@
                 const parentPost = button.closest('.post');
 
                 const sharedPost = parentPost.cloneNode(true);
-                document.body.insertBefore(sharedPost, createPostButton[0].nextSibling);
-                const buttonSetting = sharedPost.querySelectorAll('.buttonSettingsPicture');
+
+                
+                const sharedPostContainer = createElementHTML('div','sharedPostContainer');
+                console.log(sharedPost);
+                const postLogoName = parentPost.querySelector(".postHead");
+                console.log(postLogoName)
+                sharedPostContainer.appendChild(postLogoName);
+                sharedPostContainer.appendChild(sharedPost);
+                document.body.insertBefore(sharedPostContainer, sharedPost.nextSibling);
+                
+
+                document.body.insertBefore(sharedPostContainer, createPostButton[0].nextSibling);
+                const buttonSetting = sharedPostContainer.querySelectorAll('.buttonSettingsPicture');
                 setButtonSettings(buttonSetting);
+                 // button.style.display = "none";
 
                 const parentPostButtonShare = parentPost.querySelector('.buttonShare');
 
@@ -31,7 +50,9 @@
                     parentPostButtonShare.dataset.shareCount = parseInt(parentPostButtonShare.dataset.shareCount) + 1;
                     parentPostButtonShare.innerHTML = parentPostButtonShare.dataset.shareCount + " Shares";
                 }
+            
 
+            
 
             });
         });
@@ -65,7 +86,7 @@
 
             buttonCreate.classList.add("buttonCreate");
             buttonCreate.classList.add("basicStyleButton");
-            buttonCreate.innerHTML = "Create";
+            buttonCreate.innerHTML = "Create";  
 
 
             // Create the button to share post
@@ -105,6 +126,7 @@
                 const newbuttonShare = newPost.querySelectorAll('.buttonShare');
                 
                 setButtonShare(newbuttonShare);
+
             });
 
             document.body.insertBefore(newPost, createPostButton.nextSibling);
@@ -113,6 +135,7 @@
              setButtonSettings(buttonSettings); 
         });
     });
+
 
 
 

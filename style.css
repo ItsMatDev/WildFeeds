@@ -4,7 +4,7 @@
 
 :root {
     --primary-color: #a306b6;
-    --secondary-color: #FAF45E;
+    --secondary-color: #FAF456;
     --background-primary: #ebf2fa;
 }
 
@@ -107,6 +107,10 @@ a {
     animation-duration: 2s;
     animation-delay: 0s;
 
+}
+
+.sharedPostContainer {  
+   
 }
 
 .postHead {
