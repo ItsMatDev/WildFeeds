@@ -2,7 +2,7 @@ const createPostButton = document.querySelectorAll('.createPost');
 const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
 const buttonShare = document.querySelectorAll('.buttonShare');
 
-function createElementHTML(elementHTML, className, text = null) {
+function createElementHTML(elementHTML, className, text = '') {
     const element = document.createElement(`${elementHTML}`)
     element.classList.add(`${className}`)
     element.innerHTML = `${text}`
@@ -12,8 +12,9 @@ function createElementHTML(elementHTML, className, text = null) {
 function setButtonSettings(button) {
 
     button.forEach((button) => {
-        button.addEventListener('click', () => {
-            const parentPost = button.closest('.post');
+        button.addEventListener('click', (className = '.post') => {
+            const parentPost = button.closest(className);
+            console.log(parentPost)
             document.body.removeChild(parentPost);
         });
     });
@@ -28,18 +29,19 @@ function setButtonShare(button) {
 
 
             const sharedPostContainer = createElementHTML('div', 'sharedPostContainer');
-            console.log(sharedPost);
-            const postLogoName = parentPost.querySelector(".postHead");
-            console.log(postLogoName)
+            const postLogoName = parentPost.querySelector(".postHead").cloneNode(true);
             sharedPostContainer.appendChild(postLogoName);
             sharedPostContainer.appendChild(sharedPost);
             document.body.insertBefore(sharedPostContainer, sharedPost.nextSibling);
+            const currentUserNamePostShared = sharedPostContainer.querySelector('.userName')
+            currentUserNamePostShared.innerHTML = "Shared By Pierre Adrien"
 
 
             document.body.insertBefore(sharedPostContainer, createPostButton[0].nextSibling);
             const buttonSetting = sharedPostContainer.querySelectorAll('.buttonSettingsPicture');
-            setButtonSettings(buttonSetting);
-            // button.style.display = "none";
+            setButtonSettings(buttonSetting, ".sharedPostContainer");
+            const sharePostChild = sharedPostContainer.querySelector('.post')
+            sharePostChild.style.margin = '0px';
 
             const parentPostButtonShare = parentPost.querySelector('.buttonShare');
 
