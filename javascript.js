@@ -2,14 +2,10 @@ const createPostButton = document.querySelectorAll('.createPost');
 const buttonSettings = document.querySelectorAll('.buttonSettingsPicture');
 const buttonShare = document.querySelectorAll('.buttonShare');
 
-function createElementHTML(elementHTML, className, text = null) {
+function createElementHTML(elementHTML, className, text = '') {
     const element = document.createElement(`${elementHTML}`)
     element.classList.add(`${className}`)
-    if (text === null) {
-        text = "";
-    } else {
-        element.innerHTML = `${text}`
-    }
+    element.innerHTML = `${text}`
     return element;
 }
 
