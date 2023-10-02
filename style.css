@@ -85,7 +85,6 @@ a {
     color: var(--secondary-color);
     font-size: 80%;
     align-content: center;
-
 }
 
 .mainUserLogo {
@@ -107,6 +106,13 @@ a {
     border: 1px solid var(--dark);
     border-radius: 10px;
     padding: 0.5rem;
+    width: 10rem;
+    background-color: var(--background-primary);
+}
+.createPost:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 
 }
 
@@ -326,6 +332,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 @media screen and (min-width: 660px) {
