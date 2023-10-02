@@ -46,10 +46,9 @@ body {
 
 header {
     width: 100%;
-    height: 2, 5rem;
-    border: 1px solid black;
     height: 2rem;
-    border: 1px solid var(--dark);
+    border-bottom: 2px solid var(--dark);
+    box-shadow: 2px 2px 2px;
     background-color: var(--primary-color);
     margin-bottom: 1rem;
     display: flex;
@@ -79,6 +78,7 @@ header {
 a {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .loggedUserName {
@@ -123,6 +123,8 @@ a {
     border-radius: 10px;
 
 }
+
+
 
 .sharedPostContainer{
     width: 100%;
@@ -318,4 +320,39 @@ h3 {
 
 button {
     font-family: var(--text-font);
+}
+
+.columnOfPosts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width: 660px) {
+
+    .columnOfPosts {
+        width: 70%;
+        border-inline: 1px solid var(--primary-color);
+        padding-inline: 10rem;
+        
+    }
+    
+    header {
+        height: 5rem;
+    }
+
+    .wildfeedsTitle {
+     font-size: 3rem;
+    }
+    .wildfeedsLogo {
+        width: 9%;
+    }
+    .loggedUserName {
+        font-size: 2rem;
+    }
+    .mainUserLogo {
+        width: 5rem;
+        height: auto;
+        border-radius: 50px;
+    }
 }
