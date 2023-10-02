@@ -10,33 +10,34 @@ About task repartition :
 
 | Task \  Name            | Matthieu  | P. A.   | Lucas   | 
 | ------                  | -------   | ------- | ------- | 
-| headerTitle             | [ ]       | [x]     | [ ]     | 
-| headerLogo              | [ ]       | [x]     | [ ]     | 
-| headerNav               | [ ]       | [x]     | [ ]     | 
-| headerProfilName        | [ ]       | [x]     | [ ]     | 
-| headerProfilPicture     | [ ]       | [x]     | [ ]     | 
-| headerDisplay           | [ ]       | [x]     | [ ]     |
-| buttonNewPost           | [x]       | [ ]     | [ ]     | 
-| buttonNewPostFunction   | [x]       | [ ]     | [ ]     | 
-| buttonNewPostDisplay    | [ ]       | [ ]     | [ ]     | 
-| newPostContent          | [ ]       | [ ]     | [ ]     | 
-| newPostDisplay          | [ ]       | [ ]     | [ ]     |
-| postAnimation           | [ ]       | [ ]     | [ ]     |
-| buttonSettingsDisplay   | [ ]       | [ ]     | [ ]     | 
-| buttonSettingsFunction  | [x]       | [ ]     | [ ]     | 
-| butonnShareDisplay      | [ ]       | [ ]     | [ ]     | 
-| buttonShareFunction     | [ ]       | [ ]     | [ ]     | 
-| buttonCommentDisplay    | [ ]       | [ ]     | [x]     | 
-| buttonCommentFunction   | [ ]       | [ ]     | [x]     |
-| newCommentFunction      | [ ]       | [ ]     | [x]     |
-| deleteNewComment        | [ ]       | [ ]     | [x]     |
-| newCommentDisplay       | [ ]       | [ ]     | [ ]     |
-| buttonLike              | [ ]       | [x]     | [ ]     |
-| buttonLikeFunction      | [ ]       | [x]     | [ ]     |
-| ButtonLikeCount         | [ ]       | [x]     | [ ]     | 
-| buttonLikeDisplay       | [ ]       | [x]     | [ ]     |
-| footerContent           | [ ]       | [ ]     | [ ]     | 
-| footerDisplay           | [ ]       | [ ]     | [ ]     | 
+| headerTitle             | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [X] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| headerLogo              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| headerNav               | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| headerProfilName        | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| headerProfilPicture     | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| headerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonNewPost           | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonNewPostFunction   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonNewPostDisplay    | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| newPostContent          | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| newPostDisplay          | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| postAnimation           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonSettingsDisplay   | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonSettingsFunction  | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| butonnShareDisplay      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonShareFunction     | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonCommentDisplay    | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| buttonCommentFunction   | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| newCommentFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| deleteNewComment        | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| newCommentDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonLike              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonLikeFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| ButtonLikeCount         | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonLikeDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| footerContent           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| footerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+
 
 
 **navbBar** : Create a navigation bar with on one side the display of the logo, the name of the website and click on both logo or name will navigate to the home (index.html). Moreover, display name of the current user and his picture on this other side of the navigation bar.
