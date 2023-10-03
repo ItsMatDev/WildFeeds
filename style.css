@@ -46,10 +46,9 @@ body {
 
 header {
     width: 100%;
-    height: 2, 5rem;
-    border: 1px solid black;
     height: 2rem;
-    border: 1px solid var(--dark);
+    border-bottom: 2px solid var(--dark);
+    box-shadow: 2px 2px 2px;
     background-color: var(--primary-color);
     margin-bottom: 1rem;
     display: flex;
@@ -80,13 +79,13 @@ a {
     display: flex;
     align-items: center;
     text-decoration: none;
+    text-decoration: none;
 }
 
 .loggedUserName {
     color: var(--secondary-color);
     font-size: 80%;
     align-content: center;
-
 }
 
 .mainUserLogo {
@@ -108,6 +107,13 @@ a {
     border: 1px solid var(--dark);
     border-radius: 10px;
     padding: 0.5rem;
+    width: 10rem;
+    background-color: var(--background-primary);
+}
+.createPost:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 
 }
 
@@ -131,7 +137,7 @@ a {
 }
 
 .post {
-    width:100%;
+    width: 100%;
     border: 1px solid black;
     border-radius: 10px;
     background-color: var(--background-primary);
@@ -177,7 +183,7 @@ a {
     width: 2rem;
     height: 2rem;
     border-radius: 10px;
-    border: 2px solid var(--secondary-color);
+    border: 0;
     background-color: var(--primary-color);
 }
 
@@ -192,7 +198,7 @@ a {
 }
 
 .buttonSettingsPicture {
-    width: 1rem;
+    width: 2rem;
 }
 
 
@@ -234,6 +240,10 @@ a {
 
 .visible {
     display: block;
+}
+
+.commentsContainer .buttonSubmit {
+    margin-top: .5rem;
 }
 
 .commentsSectionHeader {
@@ -291,7 +301,7 @@ a {
 }
 
 .deleteButton {
-    display: block;
+    display: none;
     float: right;
     height: 1.5rem;
     width: 1.5rem;
@@ -319,6 +329,41 @@ h3 {
 
 button {
     font-family: var(--text-font);
+}
+
+.columnOfPosts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+@media screen and (min-width: 660px) {
+
+    .columnOfPosts {
+        width: 70%;
+        border-inline: 1px solid var(--primary-color);
+        padding-inline: 10rem;
+    }
+    
+    header {
+        height: 5rem;
+    }
+
+    .wildfeedsTitle {
+     font-size: 3rem;
+    }
+    .wildfeedsLogo {
+        width: 9%;
+    }
+    .loggedUserName {
+        font-size: 2rem;
+    }
+    .mainUserLogo {
+        width: 5rem;
+        height: auto;
+        border-radius: 50px;
+    }
 }
 
 footer {
