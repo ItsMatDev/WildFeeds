@@ -166,60 +166,18 @@ createPostButton.forEach((createPostButton) => {
 const buttonComments = document.querySelectorAll(".buttonComments");
 const post1 = document.querySelector(".post1");
 const commentsPost1 = [
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium.",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment: "Lorem ipsum3",
-  },
-];
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
+    { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+]
 const commentsPost2 = [
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 2",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium.",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment: "Lorem ipsum3",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment: "Lorem ipsum3",
-  },
-  {
-    name: "Name Lastname",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment: "Lorem ipsum3",
-  },
-];
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 2" },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
+    { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
+    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
+
+]
 const commentsPost3 = [
   {
     name: "Name Lastname",
@@ -237,17 +195,15 @@ const commentsPost3 = [
   },
 ];
 const currentUser = [
-  {
-    username: "Pierre Adrien",
-    profilePicture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-  },
-];
+    { username: "Pierre Adrien", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
+]
+const deleteButtons = [];
 
 // Appel de la fonction qui créée la section commentaire
 createCommentsSection();
 // Initialisation des boutons commentaires
 setExistingCommentsButtons(buttonComments);
+setDeleteButtons(deleteButtons);
 
 // Initialisation des boutons submit
 const buttonSubmit = document.querySelectorAll(".buttonSubmit");
@@ -271,18 +227,16 @@ function createCommentsSection() {
 
 // Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
 function createCommentsSectionHeader(commentsContainer) {
-  const commentsSectionHeader = createElementHTML(
-    "div",
-    "commentsSectionHeader"
-  );
-  commentsContainer.appendChild(commentsSectionHeader);
-  const commentInput = createElementHTML("input", "commentInput");
-  commentInput.placeholder = "write a new comment";
-  commentsSectionHeader.appendChild(commentInput);
-  const submitButton = document.createElement("button");
-  submitButton.classList.add("buttonSubmit", "basicStyleButton");
-  submitButton.innerText = "Submit";
-  commentsSectionHeader.appendChild(submitButton);
+    const commentsSectionHeader = createElementHTML('div', 'commentsSectionHeader');
+    commentsContainer.appendChild(commentsSectionHeader);
+    const commentInput = createElementHTML('input', 'commentInput');
+    commentInput.placeholder = "write a new comment";
+    commentsSectionHeader.appendChild(commentInput);
+    const submitButton = document.createElement('button');
+    submitButton.classList.add('buttonSubmit', 'basicStyleButton');
+    submitButton.innerText = "Submit";
+    commentsSectionHeader.appendChild(submitButton);
+    //setDeleteButton(deleteButtons)
 }
 
 // Insère les commentaires existants dans leur post respectif
@@ -295,27 +249,47 @@ function insertComments(commentContainer, comments) {
   });
 }
 
+
+// Créée l'ensemble des éléments composant un commentaire
 function createCommentElements(username, comment, picture) {
-  const commentBox = createElementHTML("article", "commentBox");
-  const commentProfile = createElementHTML("div", "commentProfile");
-  commentBox.appendChild(commentProfile);
-  const profilePicture = createElementHTML("img", "commentPicture");
-  profilePicture.src = picture;
-  commentProfile.appendChild(profilePicture);
-  const commentBody = createElementHTML("div", "commentBody");
-  commentBox.appendChild(commentBody);
-  const commentHeader = createElementHTML("div", "commentHeader");
-  commentBody.appendChild(commentHeader);
-  const profileName = createElementHTML("h3", "commentName", username);
-  commentHeader.appendChild(profileName);
-  const deleteButton = createElementHTML("button", "deleteButton");
-  commentHeader.appendChild(deleteButton);
-  const deleteButtonImage = createElementHTML("img", "deleteButtonImage");
-  deleteButtonImage.src = "assets/logo/delete.svg";
-  deleteButton.appendChild(deleteButtonImage);
-  const commentText = createElementHTML("p", "commentText", comment);
-  commentBody.appendChild(commentText);
-  return commentBox;
+    const commentBox = createElementHTML('article', 'commentBox');
+    const commentProfile = createElementHTML('div', 'commentProfile');
+    commentBox.appendChild(commentProfile);
+    const profilePicture = createElementHTML('img', 'commentPicture');
+    profilePicture.src = picture;
+    commentProfile.appendChild(profilePicture);
+    const commentBody = createElementHTML('div', 'commentBody');
+    commentBox.appendChild(commentBody);
+    const commentHeader = createElementHTML('div', 'commentHeader');
+    commentBody.appendChild(commentHeader);
+    const profileName = createElementHTML('h3', 'commentName', username);
+    commentHeader.appendChild(profileName);
+    const deleteButton = createElementHTML('button', 'deleteButton');
+    commentHeader.appendChild(deleteButton);
+    if (username === "Pierre Adrien"){
+        deleteButtons.push(deleteButton);
+    }
+    const commentText = createElementHTML('p', 'commentText', comment);
+    commentBody.appendChild(commentText);
+    return commentBox;
+}
+
+// Initialise un ensemble de boutons supprimer
+function setDeleteButtons(buttons){
+    buttons.forEach(button => {
+        button.style.display = "block";
+        const commentsContainer = button.closest('.commentsContainer');
+        const commentBox = button.closest('.commentBox');
+        setDeleteButton(button, commentsContainer, commentBox);
+    });
+}
+
+// Initialise un bouton supprimer unique
+function setDeleteButton(button, commentsContainer, comment) {
+    button.addEventListener('click', function () {
+        commentsContainer.removeChild(comment);
+        commentsCount(commentsContainer);
+    })
 }
 
 // Fonction permettant la création des éléments composant le nouveau commentaire
@@ -361,13 +335,6 @@ function setCommentButton(button) {
     const currentPost = button.closest(".post");
     const commentContainer = currentPost.querySelector(".commentsContainer");
     visible(commentContainer);
-  });
-}
-
-function setDeleteButton(button, commentContainer, comment) {
-  button.addEventListener("click", function (event) {
-    commentContainer.removeChild(comment);
-    commentsCount(commentContainer);
   });
 }
 

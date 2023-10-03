@@ -130,8 +130,6 @@ a {
 
 }
 
-
-
 .sharedPostContainer{
     width: 100%;
     margin-top: 1rem;
@@ -241,6 +239,10 @@ a {
 
 .visible {
     display: block;
+}
+
+.commentsContainer .buttonSubmit {
+    margin-top: .5rem;
 }
 
 .commentsSectionHeader {
