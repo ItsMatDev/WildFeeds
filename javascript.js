@@ -39,7 +39,7 @@ function setButtonShare(button) {
 
             document.body.insertBefore(sharedPostContainer, createPostButton[0].nextSibling);
             const buttonSetting = sharedPostContainer.querySelectorAll('.buttonSettingsPicture');
-         
+
             buttonSetting.forEach((button) => {
                 button.addEventListener('click', () => {
                     const sharedPostContainer = button.closest('.sharedPostContainer');
@@ -352,27 +352,37 @@ function commentsCount(commentsContainer) {
 
 
 //Like button
-const likeButton = document.querySelector(".buttonLike");
-const likePic = document.querySelector(".likePicture");
+const likeButton = document.querySelectorAll(".buttonLike")
+const likePic = document.querySelectorAll(".likePicture");
 
-likePic.addEventListener('click', function (e) {
-    e.preventDefault();
 
-    if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
-        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
-        likePic.alt = "Green thumbs up you liked this post";
-        console.log('Premier if');
-    }
-    else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
-        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
-        likePic.alt = "Red thumbs up you unliked this post";
-        console.log('Second If');
-    }
-    else {
-        likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
-        likePic.alt = "Green thumbs up you liked this post";
-        console.log('In the else');
-    }
+
+likeButton.forEach((button) => {
+
+    button.addEventListener('click', function (event) {
+        event.preventDefault();
+        const likePic = button.closest(".buttonLike");
+        let likeCount = parseInt(likePic.closest(".likeCount").textContent);
+        console.log(likeCount);
+
+        if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
+            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+            likePic.alt = "Green thumbs up you liked this post";
+            likeCount += 1;
+            document.querySelector(".likeCount").textContent = likeCount;
+
+        }
+        else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
+            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
+            likePic.alt = "Red thumbs up you unliked this post";
+            likeCount -= 1;
+            document.querySelector(".likeCount").textContent = likeCount;
+        }
+        else {
+            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
+            likePic.alt = "Green thumbs up you liked this post";
+            likeCount += 1;
+            document.querySelector(".likeCount").textContent = likeCount;
+        }
+    })
 });
-
-    const likeCount = document.querySelector(".likeCount"
