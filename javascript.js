@@ -145,6 +145,18 @@ createPostButton.forEach((createPostButton) => {
       postContentPicture.src = inputImageValue;
       postContentPicture.alt = "";
       buttonCreate.style.display = "none";
+      // Création de la section commentaire du nouveau post
+      const newCommentsContainer = createElementHTML('section', 'commentsContainer');
+      newPost.appendChild(newCommentsContainer);
+      createCommentsSectionHeader(newCommentsContainer);
+      const newSubmitButton = newPost.querySelectorAll('.buttonSubmit');
+      setSubmitButtons(newSubmitButton);
+      // Création du bouton commentaires du nouveau post
+      const buttonComment = createElementHTML('button', 'buttonComments', 'Commentaires');
+      buttonComment.classList.add('basicStyleButton');
+      buttonBox.appendChild(buttonComment);
+      setCommentButton(buttonComment);
+      commentsCount(newCommentsContainer);
       // buttonBox.appendChild(buttonShare);
       postContentTextPicture.removeChild(inputText);
       postContentTextPicture.removeChild(inputImage);
@@ -180,14 +192,14 @@ const commentsPost2 = [
 ]
 const commentsPost3 = [
   {
-    name: "Name Lastname",
+    name: "Pierre Adrien",
     picture:
       "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
     comment:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Testing post 3",
   },
   {
-    name: "Name Lastname",
+    name: "Pierre Adrien",
     picture:
       "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
     comment:
@@ -206,8 +218,8 @@ setExistingCommentsButtons(buttonComments);
 setDeleteButtons(deleteButtons);
 
 // Initialisation des boutons submit
-const buttonSubmit = document.querySelectorAll(".buttonSubmit");
-setSubmitButtons(buttonSubmit);
+const buttonsSubmit = document.querySelectorAll(".buttonSubmit");
+setSubmitButtons(buttonsSubmit);
 
 // Créée les sections commentaires pour chaque post
 function createCommentsSection() {
@@ -372,7 +384,19 @@ function commentsCount(commentsContainer) {
   const currentPost = commentsContainer.closest(".post");
   const commentCount = currentPost.querySelectorAll(".commentBox").length;
   const buttonComment = currentPost.querySelector(".buttonComments");
-  buttonComment.innerText = `${commentCount} Commentaires`;
+  if (commentCount > 0) {
+    if (commentCount > 1){
+      buttonComment.innerText = `${commentCount} Comments`;
+    }
+    else {
+      buttonComment.innerText = `${commentCount} Comment`;
+    }
+    buttonComment.style.padding = "10px 20px";
+  }
+  else {
+    buttonComment.innerText = `Be the first to comment`;
+    buttonComment.style.padding = "10px";
+  }
 }
 
 //Like button
