@@ -320,3 +320,21 @@ h3 {
 button {
     font-family: var(--text-font);
 }
+
+footer {
+    
+    text-align: center;
+    font-size: 0.5rem;
+    width: 100%;
+    height: 2, 5rem;
+    border: 1px solid black;
+    height: 2rem;
+    border: 1px solid var(--dark);
+    background-color: var(--primary-color); 
+    align-items: center;
+ 
+}
+
+.footerElements {
+     color : var(--secondary-color)
+}

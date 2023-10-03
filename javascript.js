@@ -352,37 +352,29 @@ function commentsCount(commentsContainer) {
 
 
 //Like button
-const likeButton = document.querySelectorAll(".buttonLike")
-const likePic = document.querySelectorAll(".likePicture");
+const likeButton = document.querySelectorAll(".buttonLike");
+let likeCount = 0;
 
+function setlikeButton(buttons) {
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const parentPost = button.closest('.post');
+            const likePic = parentPost.querySelector(".likePicture");
+            const likeCountElement = parentPost.querySelector(".likeCount");
 
+            if (likePic.src === "http://127.0.0.1:5500/assets/like-empty.svg") {
+                likePic.src = "http://127.0.0.1:5500/assets/like-full.svg";
+                likePic.alt = "thumbs up full you liked this post";
+                likeCount += 1;
+                likeCountElement.textContent = likeCount; 
+            } else if (likePic.src === "http://127.0.0.1:5500/assets/like-full.svg") {
+                likePic.src = "http://127.0.0.1:5500/assets/like-empty.svg";
+                likePic.alt = "thumbs up empty you unliked this post";
+                likeCount -= 1;
+                likeCountElement.textContent = likeCount;
+            }
+        });
+    });
+}
 
-likeButton.forEach((button) => {
-
-    button.addEventListener('click', function (event) {
-        event.preventDefault();
-        const likePic = button.closest(".buttonLike");
-        let likeCount = parseInt(likePic.closest(".likeCount").textContent);
-        console.log(likeCount);
-
-        if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-yellowWild.svg") {
-            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
-            likePic.alt = "Green thumbs up you liked this post";
-            likeCount += 1;
-            document.querySelector(".likeCount").textContent = likeCount;
-
-        }
-        else if (likePic.src === "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg") {
-            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-red.svg";
-            likePic.alt = "Red thumbs up you unliked this post";
-            likeCount -= 1;
-            document.querySelector(".likeCount").textContent = likeCount;
-        }
-        else {
-            likePic.src = "http://127.0.0.1:5500/assets/thumbs-up-solid-green.svg";
-            likePic.alt = "Green thumbs up you liked this post";
-            likeCount += 1;
-            document.querySelector(".likeCount").textContent = likeCount;
-        }
-    })
-});
+setlikeButton(likeButton);
