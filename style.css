@@ -34,6 +34,16 @@
     }
 }
 
+@keyframes appear {
+    0% {
+        opacity: .2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -116,7 +126,6 @@ main {
     cursor: pointer;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-
 }
 
 .basicStyleButton {
@@ -125,15 +134,21 @@ main {
     box-shadow: 0px 1px 1px var(--primary-color);
     color: var(--secondary-color);
     background: var(--primary-color);
-    padding: 10px 20px 10px 20px;
+    padding: 0 20px;
+    height: 2.5rem;
     border: solid var(--secondary-color) 2px;
     margin-bottom: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
 }
 
+.basicStyleButton:hover,
+.deleteButton:hover {
+    cursor: pointer;
+}
+
 .sharedPostContainer{
-    width: 100%;
+    width: auto;
     margin-top: 1rem;
     background-color: #a306b6;
     border-radius: 10px;
@@ -261,6 +276,8 @@ main {
 
 .visible {
     display: block;
+    animation: appear;
+    animation-duration: 1s;
 }
 
 .commentsContainer .buttonSubmit {
@@ -348,7 +365,7 @@ main {
 
 .likePicture {
     width: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 h1,
@@ -425,7 +442,7 @@ footer {
 
 @media screen and (min-width: 961px) {
     .post {
-        max-width: 70%;
+        max-width: 766px;
     }
 
     .commentsContainer {

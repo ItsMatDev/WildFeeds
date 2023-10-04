@@ -5,27 +5,30 @@ const elementContainerOfPosts = document.body.querySelector(".columnOfPosts");
 
 function createElementHTML(elementHTML, className, text = "") {
   const element = document.createElement(`${elementHTML}`);
-  element.classList.add(`${className}`);
+  element.className = `${className}`;
   element.innerHTML = `${text}`;
   return element;
 }
 
-function setButtonSettings(button) {
-  button.forEach((button) => {
-    button.addEventListener("click", () => {
-      const parentPost = button.closest(".post");
-      elementContainerOfPosts.removeChild(parentPost);
-    });
+function setButtonSettings(buttonArray) {
+  buttonArray.forEach((button) => {
+    const parentPost = button.closest(".post");
+    const currentUserName = parentPost.querySelector(".userName");
+    if (currentUserName.innerHTML === "Pierre Adrien") {
+      button.addEventListener("click", () => {
+        elementContainerOfPosts.removeChild(parentPost);
+      });
+    } else {
+      button.style.display = "none";
+    }
   });
 }
 
-function setButtonShare(button) {
-  button.forEach((button) => {
+function setButtonShare(buttonArray) {
+  buttonArray.forEach((button) => {
     button.addEventListener("click", () => {
       const parentPost = button.closest(".post");
-
       const sharedPost = parentPost.cloneNode(true);
-
       const sharedPostContainer = createElementHTML(
         "div",
         "sharedPostContainer"
@@ -47,7 +50,7 @@ function setButtonShare(button) {
       const buttonSetting = sharedPostContainer.querySelectorAll(
         ".buttonSettingsPicture"
       );
-
+      buttonSetting[0].style.display = "initial";
       buttonSetting.forEach((button) => {
         button.addEventListener("click", () => {
           const sharedPostContainer = button.closest(".sharedPostContainer");
@@ -80,11 +83,11 @@ function setButtonShare(button) {
       const buttonSettingsParent = sharedPostContainer.querySelector(
         ".post .buttonSettings"
       );
-      console.log(buttonSettingsParent);
       buttonSettingsParent.style.display = "none";
     });
   });
 }
+
 setButtonSettings(buttonSettings);
 setButtonShare(buttonShare);
 
@@ -97,10 +100,8 @@ createPostButton.forEach((createPostButton) => {
 
     const userName = document.querySelector(".userName");
     userName.innerHTML = "Pierre Adrien";
-    const inputText = document.createElement("input");
-    const inputImage = document.createElement("input");
-    inputText.classList.add("commentInput");
-    inputImage.classList.add("commentInput");
+    const inputText = createElementHTML("input", "commentInput");
+    const inputImage = createElementHTML("input", "commentInput");
     inputText.style.marginBlock = "1rem";
     inputImage.style.marginBottom = "1rem";
 
@@ -112,19 +113,11 @@ createPostButton.forEach((createPostButton) => {
     // Create the button to write a new post
 
     const buttonBox = document.querySelector(".buttonBox");
-    const buttonCreate = document.createElement("button");
-
-    buttonCreate.classList.add("buttonCreate");
-    buttonCreate.classList.add("basicStyleButton");
-    buttonCreate.innerHTML = "Create";
-
-    // Create the button to share post
-
-    const buttonShare = document.createElement("button");
-
-    buttonShare.classList.add("buttonShare");
-    buttonShare.classList.add("basicStyleButton");
-    buttonShare.innerHTML = " Share!";
+    const buttonCreate = createElementHTML(
+      "button",
+      "buttonCreate basicStyleButton",
+      "Create"
+    );
 
     buttonBox.appendChild(buttonCreate);
 
@@ -133,39 +126,42 @@ createPostButton.forEach((createPostButton) => {
     buttonCreate.addEventListener("click", () => {
       const inputTextValue = inputText.value;
       const inputImageValue = inputImage.value;
-      const postContentText = document.createElement("p");
-      postContentText.classList.add("postContentText");
+      const postContentText = createElementHTML("p", "postContentText");
       const postContentTextPicture = newPost.querySelector(
         ".postContentTextPicture"
       );
       postContentTextPicture.appendChild(postContentText);
-      const postContentPicture = document.createElement("img");
+      const postContentPicture = createElementHTML("img", "postContentPicture");
       postContentTextPicture.appendChild(postContentPicture);
-      postContentPicture.classList.add("postContentPicture");
 
       postContentText.innerHTML = inputTextValue;
       postContentPicture.src = inputImageValue;
       postContentPicture.alt = "";
       buttonCreate.style.display = "none";
+
       // Création de la section commentaire du nouveau post
-      const newCommentsContainer = createElementHTML('section', 'commentsContainer');
+
+      const newCommentsContainer = createElementHTML(
+        "section",
+        "commentsContainer"
+      );
       newPost.appendChild(newCommentsContainer);
       createCommentsSectionHeader(newCommentsContainer);
-      const newSubmitButton = newPost.querySelectorAll('.buttonSubmit');
+      const newSubmitButton = newPost.querySelectorAll(".buttonSubmit");
       setSubmitButtons(newSubmitButton);
+
       // Création du bouton commentaires du nouveau post
-      const buttonComment = createElementHTML('button', 'buttonComments', 'Commentaires');
-      buttonComment.classList.add('basicStyleButton');
+
+      const buttonComment = createElementHTML(
+        "button",
+        "buttonComments basicStyleButton",
+        "Commentaires"
+      );
       buttonBox.appendChild(buttonComment);
       setCommentButton(buttonComment);
       commentsCount(newCommentsContainer);
-      // buttonBox.appendChild(buttonShare);
       postContentTextPicture.removeChild(inputText);
       postContentTextPicture.removeChild(inputImage);
-
-      const newbuttonShare = newPost.querySelectorAll(".buttonShare");
-
-      setButtonShare(newbuttonShare);
     });
 
     elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
@@ -209,8 +205,12 @@ const commentsPost3 = [
   },
 ];
 const currentUser = [
-    { username: "Pierre Adrien", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" }
-]
+  {
+    username: "Pierre Adrien",
+    profilePicture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+  },
+];
 const deleteButtons = [];
 
 // Appel de la fonction qui créée la section commentaire
@@ -241,16 +241,20 @@ function createCommentsSection() {
 
 // Créée les éléments nécessaires à l'ajout d'un nouveau commentaire
 function createCommentsSectionHeader(commentsContainer) {
-    const commentsSectionHeader = createElementHTML('div', 'commentsSectionHeader');
-    commentsContainer.appendChild(commentsSectionHeader);
-    const commentInput = createElementHTML('input', 'commentInput');
-    commentInput.placeholder = "write a new comment";
-    commentsSectionHeader.appendChild(commentInput);
-    const submitButton = document.createElement('button');
-    submitButton.classList.add('buttonSubmit', 'basicStyleButton');
-    submitButton.innerText = "Submit";
-    commentsSectionHeader.appendChild(submitButton);
-    //setDeleteButton(deleteButtons)
+  const commentsSectionHeader = createElementHTML(
+    "div",
+    "commentsSectionHeader"
+  );
+  commentsContainer.appendChild(commentsSectionHeader);
+  const commentInput = createElementHTML("input", "commentInput");
+  commentInput.placeholder = "write a new comment";
+  commentsSectionHeader.appendChild(commentInput);
+  const submitButton = createElementHTML(
+    "button",
+    "buttonSubmit basicStyleButton",
+    "Submit"
+  );
+  commentsSectionHeader.appendChild(submitButton);
 }
 
 // Insère les commentaires existants dans leur post respectif
@@ -263,47 +267,46 @@ function insertComments(commentContainer, comments) {
   });
 }
 
-
 // Créée l'ensemble des éléments composant un commentaire
 function createCommentElements(username, comment, picture) {
-    const commentBox = createElementHTML('article', 'commentBox');
-    const commentProfile = createElementHTML('div', 'commentProfile');
-    commentBox.appendChild(commentProfile);
-    const profilePicture = createElementHTML('img', 'commentPicture');
-    profilePicture.src = picture;
-    commentProfile.appendChild(profilePicture);
-    const commentBody = createElementHTML('div', 'commentBody');
-    commentBox.appendChild(commentBody);
-    const commentHeader = createElementHTML('div', 'commentHeader');
-    commentBody.appendChild(commentHeader);
-    const profileName = createElementHTML('h3', 'commentName', username);
-    commentHeader.appendChild(profileName);
-    const deleteButton = createElementHTML('button', 'deleteButton');
-    commentHeader.appendChild(deleteButton);
-    if (username === "Pierre Adrien"){
-        deleteButtons.push(deleteButton);
-    }
-    const commentText = createElementHTML('p', 'commentText', comment);
-    commentBody.appendChild(commentText);
-    return commentBox;
+  const commentBox = createElementHTML("article", "commentBox");
+  const commentProfile = createElementHTML("div", "commentProfile");
+  commentBox.appendChild(commentProfile);
+  const profilePicture = createElementHTML("img", "commentPicture");
+  profilePicture.src = picture;
+  commentProfile.appendChild(profilePicture);
+  const commentBody = createElementHTML("div", "commentBody");
+  commentBox.appendChild(commentBody);
+  const commentHeader = createElementHTML("div", "commentHeader");
+  commentBody.appendChild(commentHeader);
+  const profileName = createElementHTML("h3", "commentName", username);
+  commentHeader.appendChild(profileName);
+  const deleteButton = createElementHTML("button", "deleteButton");
+  commentHeader.appendChild(deleteButton);
+  if (username === "Pierre Adrien") {
+    deleteButtons.push(deleteButton);
+  }
+  const commentText = createElementHTML("p", "commentText", comment);
+  commentBody.appendChild(commentText);
+  return commentBox;
 }
 
 // Initialise un ensemble de boutons supprimer
-function setDeleteButtons(buttons){
-    buttons.forEach(button => {
-        button.style.display = "block";
-        const commentsContainer = button.closest('.commentsContainer');
-        const commentBox = button.closest('.commentBox');
-        setDeleteButton(button, commentsContainer, commentBox);
-    });
+function setDeleteButtons(buttons) {
+  buttons.forEach((button) => {
+    button.style.display = "block";
+    const commentsContainer = button.closest(".commentsContainer");
+    const commentBox = button.closest(".commentBox");
+    setDeleteButton(button, commentsContainer, commentBox);
+  });
 }
 
 // Initialise un bouton supprimer unique
 function setDeleteButton(button, commentsContainer, comment) {
-    button.addEventListener('click', function () {
-        commentsContainer.removeChild(comment);
-        commentsCount(commentsContainer);
-    })
+  button.addEventListener("click", function () {
+    commentsContainer.removeChild(comment);
+    commentsCount(commentsContainer);
+  });
 }
 
 // Fonction permettant la création des éléments composant le nouveau commentaire
@@ -387,15 +390,13 @@ function commentsCount(commentsContainer) {
   const commentCount = currentPost.querySelectorAll(".commentBox").length;
   const buttonComment = currentPost.querySelector(".buttonComments");
   if (commentCount > 0) {
-    if (commentCount > 1){
+    if (commentCount > 1) {
       buttonComment.innerText = `${commentCount} Comments`;
-    }
-    else {
+    } else {
       buttonComment.innerText = `${commentCount} Comment`;
     }
     buttonComment.style.padding = "10px 20px";
-  }
-  else {
+  } else {
     buttonComment.innerText = `Be the first to comment`;
     buttonComment.style.padding = "10px";
   }
@@ -406,25 +407,25 @@ const likeButton = document.querySelectorAll(".buttonLike");
 let likeCount = 0;
 
 function setlikeButton(buttons) {
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const parentPost = button.closest('.post');
-            const likePic = parentPost.querySelector(".likePicture");
-            const likeCountElement = parentPost.querySelector(".likeCount");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const parentPost = button.closest(".post");
+      const likePic = parentPost.querySelector(".likePicture");
+      const likeCountElement = parentPost.querySelector(".likeCount");
 
-            if (likePic.src === "http://127.0.0.1:5500/assets/like-empty.svg") {
-                likePic.src = "http://127.0.0.1:5500/assets/like-full.svg";
-                likePic.alt = "thumbs up full you liked this post";
-                likeCount += 1;
-                likeCountElement.textContent = likeCount; 
-            } else if (likePic.src === "http://127.0.0.1:5500/assets/like-full.svg") {
-                likePic.src = "http://127.0.0.1:5500/assets/like-empty.svg";
-                likePic.alt = "thumbs up empty you unliked this post";
-                likeCount -= 1;
-                likeCountElement.textContent = likeCount;
-            }
-        });
+      if (likePic.src === "http://127.0.0.1:5500/assets/like-empty.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/like-full.svg";
+        likePic.alt = "thumbs up full you liked this post";
+        likeCount += 1;
+        likeCountElement.textContent = likeCount;
+      } else if (likePic.src === "http://127.0.0.1:5500/assets/like-full.svg") {
+        likePic.src = "http://127.0.0.1:5500/assets/like-empty.svg";
+        likePic.alt = "thumbs up empty you unliked this post";
+        likeCount -= 1;
+        likeCountElement.textContent = likeCount;
+      }
     });
+  });
 }
 
 setlikeButton(likeButton);
