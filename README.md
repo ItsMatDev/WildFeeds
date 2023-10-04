@@ -30,13 +30,16 @@ About task repartition :
 | buttonCommentFunction   | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 | newCommentFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 | deleteNewComment        | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
-| newCommentDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| deleteOldComment        | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| newCommentDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
+| CommentSectionAnimation | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 | buttonLike              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonLikeFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | ButtonLikeCount         | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonLikeDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | footerContent           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | footerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| Responsive              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 
 
 
