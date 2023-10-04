@@ -76,6 +76,7 @@ a {
     display: flex;
     align-items: center;
     text-decoration: none;
+    text-decoration: none;
 }
 
 .loggedUserName {
@@ -134,6 +135,11 @@ main {
 .sharedPostContainer{
     width: 100%;
     margin-top: 1rem;
+    background-color: #a306b6;
+    border-radius: 10px;
+    animation-name: slide-in;
+    animation-duration: 2s;
+    animation-delay: 0s;
 }
 
 .post {
@@ -146,6 +152,9 @@ main {
     animation-name: slide-in;
     animation-duration: 2s;
     animation-delay: 0s;
+}
+.post:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .postHead {
@@ -226,8 +235,16 @@ main {
     flex-direction: row-reverse;
 }
 
+
 .buttonBox:last-child {
     margin-right: 1rem;
+}
+.buttonLike {
+    display: flex;
+    align-items: center;
+}
+.likeCount{
+    margin-right: 0.4rem;
 }
 
 .commentsContainer {
@@ -330,7 +347,8 @@ main {
 
 
 .likePicture {
-    width: 1.5rem;
+    width: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 h1,
@@ -347,6 +365,22 @@ button {
     flex-direction: column;
     align-items: center;
     height: 100%;
+}
+
+footer {
+    
+    text-align: center;
+    font-size: 0.8rem;
+    width: 100vw;
+    height: 2.5rem;
+    border: 1px solid var(--dark);
+    background-color: var(--primary-color);
+    align-items: center;
+}
+
+.footerElements {
+     color : var(--secondary-color)
+
 }
 
 @media screen and (min-width: 660px) {
