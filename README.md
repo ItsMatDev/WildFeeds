@@ -2,7 +2,7 @@
 
 ## First project at the wild code school
 
-The main goals of the project is to reproduct a wall of a social network.  
+The main goals of the project is to reproduct a wall of a social network and that everyone work a little in HTML, CSS and JavaScript.  
 We decided to base our theme on the wild code school.
 
 
