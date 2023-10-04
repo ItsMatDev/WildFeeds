@@ -207,14 +207,9 @@ main {
     background-color: var(--primary-color);
 }
 
-.buttonSettings:hover {
+.buttonSettingsPicture:hover {
     transform: rotate(0.05rad);
     cursor: pointer;
-}
-
-.buttonSettings:active {
-    box-shadow: 1px 1px 5px var(--secondary-color);
-
 }
 
 .buttonSettingsPicture {
@@ -412,7 +407,6 @@ button {
 }
 
 footer {
-    
     text-align: center;
     font-size: 0.8rem;
     width: 100vw;
