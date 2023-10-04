@@ -34,16 +34,6 @@
     }
 }
 
-@keyframes appear {
-    0% {
-        opacity: .2;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -126,6 +116,7 @@ main {
     cursor: pointer;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+
 }
 
 .basicStyleButton {
@@ -134,21 +125,15 @@ main {
     box-shadow: 0px 1px 1px var(--primary-color);
     color: var(--secondary-color);
     background: var(--primary-color);
-    padding: 0 20px;
-    height: 2.5rem;
+    padding: 10px 20px 10px 20px;
     border: solid var(--secondary-color) 2px;
     margin-bottom: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
 }
 
-.basicStyleButton:hover,
-.deleteButton:hover {
-    cursor: pointer;
-}
-
 .sharedPostContainer{
-    width: auto;
+    width: 100%;
     margin-top: 1rem;
     background-color: #a306b6;
     border-radius: 10px;
@@ -211,15 +196,34 @@ main {
     background-color: var(--primary-color);
 }
 
-.buttonSettings:hover {
+.buttonModify {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    width: 2rem;
+    height: 2rem;
+}
+.buttonModifyPicture {
+    width: 1.5rem;
+}
+.buttonModifyPicture:hover{
+    transform: rotate(0.05rad);
+}
+
+.buttonModify:hover {
+    cursor:pointer;
+}
+.buttonSettingsPicture:hover {
     transform: rotate(0.05rad);
     cursor: pointer;
 }
 
-.buttonSettings:active {
-    box-shadow: 1px 1px 5px var(--secondary-color);
-
+.buttonCorner {
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .buttonSettingsPicture {
     width: 2rem;
@@ -276,8 +280,6 @@ main {
 
 .visible {
     display: block;
-    animation: appear;
-    animation-duration: 1s;
 }
 
 .commentsContainer .buttonSubmit {
@@ -365,7 +367,7 @@ main {
 
 .likePicture {
     width: 1.2rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 h1,
@@ -442,7 +444,7 @@ footer {
 
 @media screen and (min-width: 961px) {
     .post {
-        max-width: 766px;
+        max-width: 70%;
     }
 
     .commentsContainer {

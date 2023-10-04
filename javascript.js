@@ -1,6 +1,7 @@
 const createPostButton = document.querySelectorAll(".createPost");
 const buttonSettings = document.querySelectorAll(".buttonSettingsPicture");
 const buttonShare = document.querySelectorAll(".buttonShare");
+const buttonModify = document.querySelectorAll(".buttonModifyPicture");
 const elementContainerOfPosts = document.body.querySelector(".columnOfPosts");
 
 function createElementHTML(elementHTML, className, text = "") {
@@ -17,6 +18,78 @@ function setButtonSettings(buttonArray) {
     if (currentUserName.innerHTML === "Pierre Adrien") {
       button.addEventListener("click", () => {
         elementContainerOfPosts.removeChild(parentPost);
+      });
+    } else {
+      button.style.display = "none";
+    }
+  });
+}
+function setButtonModify(buttonArray) {
+  buttonArray.forEach((button) => {
+    const parentPost = button.closest(".post");
+    const currentUserName = parentPost.querySelector(".userName");
+    if (currentUserName.innerHTML === "Pierre Adrien") {
+      button.addEventListener("click", () => {
+        const currentPostContentTextPicture = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+        const currentPostContentText =
+          parentPost.querySelector(".postContentText");
+        const currentPostContentPicture = parentPost.querySelector(
+          ".postContentPicture"
+        );
+        const inputText = parentPost.querySelector(".postContentText");
+        const inputImage = parentPost.querySelector(".postContentPicture");
+        parentPost.querySelector(".postContentPicture");
+        currentPostContentTextPicture.removeChild(currentPostContentText);
+        currentPostContentTextPicture.removeChild(currentPostContentPicture);
+
+        const modifyContentInputText = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputText.value = inputText.innerHTML;
+        const modifyContentInputImage = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputImage.value = inputImage.src;
+        const postParentContent = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+
+        postParentContent.appendChild(modifyContentInputText);
+        postParentContent.appendChild(modifyContentInputImage);
+        const buttonConfirm = createElementHTML(
+          "button",
+          "buttonConfirm basicStyleButton",
+          "Modify"
+        );
+        const buttonComments = parentPost.querySelector(".buttonComments");
+        const buttonBox = parentPost.querySelector(".buttonBox");
+        buttonBox.appendChild(buttonConfirm);
+
+        buttonComments.style.display = "none";
+        buttonConfirm.addEventListener("click", () => {
+          buttonComments.style.display = "initial";
+          buttonConfirm.style.display = "none";
+          const postContentText = createElementHTML("p", "postContentText");
+          const postContentTextPicture = parentPost.querySelector(
+            ".postContentTextPicture"
+          );
+          postContentTextPicture.appendChild(postContentText);
+          const postContentPicture = createElementHTML(
+            "img",
+            "postContentPicture"
+          );
+          postContentTextPicture.appendChild(postContentPicture);
+
+          postContentText.innerHTML = modifyContentInputText.value;
+          postContentPicture.src = modifyContentInputImage.value;
+          postContentPicture.alt = "";
+          postParentContent.removeChild(modifyContentInputText);
+          postParentContent.removeChild(modifyContentInputImage);
+        });
       });
     } else {
       button.style.display = "none";
@@ -85,7 +158,7 @@ function setButtonShare(buttonArray) {
     });
   });
 }
-
+setButtonModify(buttonModify);
 setButtonSettings(buttonSettings);
 setButtonShare(buttonShare);
 
@@ -166,6 +239,8 @@ createPostButton.forEach((createPostButton) => {
 
     const buttonSettings = newPost.querySelectorAll(".buttonSettingsPicture");
     setButtonSettings(buttonSettings);
+    const buttonModifys = newPost.querySelectorAll(".buttonModifyPicture");
+    setButtonModify(buttonModifys);
   });
 });
 
