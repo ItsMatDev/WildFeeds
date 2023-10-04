@@ -18,14 +18,14 @@ About task repartition :
 | headerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonNewPost           | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonNewPostFunction   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| buttonNewPostDisplay    | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| newPostContent          | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| newPostDisplay          | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| postAnimation           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| buttonSettingsDisplay   | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonNewPostDisplay    | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| newPostContent          | <ul> <li> - [x] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| newPostDisplay          | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| postAnimation           | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonSettingsDisplay   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonSettingsFunction  | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| butonnShareDisplay      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| buttonShareFunction     | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| butonnShareDisplay      | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonShareFunction     | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonCommentDisplay    | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 | buttonCommentFunction   | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 | newCommentFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
@@ -37,9 +37,9 @@ About task repartition :
 | buttonLikeFunction      | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | ButtonLikeCount         | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonLikeDisplay       | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| footerContent           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| footerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| Responsive              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| footerContent           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| footerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| Responsive              | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 
 
 
