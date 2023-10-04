@@ -226,6 +226,10 @@ main {
     flex-direction: row-reverse;
 }
 
+.buttonBox:last-child {
+    margin-right: 1rem;
+}
+
 .commentsContainer {
     height: auto;
     display: none;
@@ -393,6 +397,13 @@ button {
     .commentsContainer {
         justify-content: center;
     }
+    .commentsSectionHeader {
+        width: 661px;
+        justify-content: flex-end;
+    }
+    .commentInput {
+        width: calc(661px - 87px - 64px);
+    }
     .commentBox {
         max-width: 661px;
         margin: 0 auto .5rem;
@@ -402,22 +413,11 @@ button {
 @media screen and (min-width: 1281px) {
     .columnOfPosts {
         min-width: 70%;
-        border-inline: 1px solid var(--primary-color);
+        /*border-inline: 1px solid var(--primary-color);*/
     }
 
     .post {
-        max-width: calc(872px);
-    }
-
-    main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url(./assets/Logo\ Wild\ Purple.svg);
-        background-position:center center;
-        background-repeat: no-repeat;
-        background-size: 90%;
-        background-attachment: fixed;
+        max-width: 872px;
     }
 }
 
