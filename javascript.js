@@ -245,38 +245,75 @@ createPostButton.forEach((createPostButton) => {
     setButtonModify(buttonModifys);
   });
 });
-
 // Gestion de l'espace commentaires
 
 const buttonComments = document.querySelectorAll(".buttonComments");
 const post1 = document.querySelector(".post1");
 const commentsPost1 = [
-    { name: "Emmanuel Macron", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Bonne chance à tous et bravo pour vos présentation!." },
-    { name: "Lucas", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "This is my moment of glory!!!" },
-    { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Merci Manu!" }
-]
+  {
+    name: "Emmanuel Macron",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Bonne chance à tous et bravo pour vos présentation!.",
+  },
+  {
+    name: "Lucas",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "This is my moment of glory!!!",
+  },
+  {
+    name: "Pierre Adrien",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Merci Manu!",
+  },
+];
 const commentsPost2 = [
-    { name: "Yoann Fortin", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Moi je suis l'avant dernière image..." },
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
-    { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
-    { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
-
-]
+  {
+    name: "Yoann Fortin",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Moi je suis l'avant dernière image...",
+  },
+  {
+    name: "Name Lastname",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium.",
+  },
+  {
+    name: "Pierre Adrien",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Lorem ipsum3",
+  },
+  {
+    name: "Name Lastname",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Lorem ipsum3",
+  },
+  {
+    name: "Name Lastname",
+    picture:
+      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+    comment: "Lorem ipsum3",
+  },
+];
 const commentsPost3 = [
   {
     name: "Mathieu",
     picture:
       "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "Arrête avec tes vannes à 2 balles, fais du code!",
+    comment: "Arrête avec tes vannes à 2 balles, fais du code!",
   },
   {
     name: "lucas",
     picture:
       "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "T'es lourd!",
+    comment: "T'es lourd!",
   },
 ];
 const currentUser = [
