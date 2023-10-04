@@ -75,6 +75,8 @@ function setButtonShare(button) {
       buttonComs.style.display = "none";
       const buttonShare = sharedPostContainer.querySelector(".buttonShare");
       buttonShare.style.display = "none";
+      const buttonLike = sharedPostContainer.querySelector(".buttonLike");
+      buttonLike.style.display = "none";
       const buttonSettingsParent = sharedPostContainer.querySelector(
         ".post .buttonSettings"
       );
@@ -399,7 +401,7 @@ function commentsCount(commentsContainer) {
   }
 }
 
-//Like button
+//Bouton like avec compteur de like
 const likeButton = document.querySelectorAll(".buttonLike");
 let likeCount = 0;
 
