@@ -63,17 +63,19 @@ header {
     display: flex;
     position: sticky;
     top: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding: .5rem 0;
     justify-content: space-between;
     align-items: center;
+}
+
+header h1 {
+    margin: 0
 }
 
 .wildfeedsLogo {
     width: 12%;
     height: 80%;
     margin-left: 5px;
-
 }
 
 .wildfeedsTitle {
@@ -96,18 +98,13 @@ a {
 }
 
 .mainUserLogo {
-
     width: 2rem;
     height: 2rem;
-    border: 2px solid #FAF45E;
-    width: 1.7rem;
-    height: 1.7rem;
     border: 2px solid var(--secondary-color);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-inline: 0.8rem;
     margin-right: 5px;
     align-content: center;
-
 }
 
 main {
@@ -180,8 +177,6 @@ main {
     border-bottom: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-
-
 }
 
 .postHeadLogoName {
@@ -190,15 +185,16 @@ main {
 }
 
 .userLogo {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.7rem;
+    height: 1.7rem;
     border: 2px solid var(--secondary-color);
-    border-radius: 10px;
+    border-radius: 14px;
     margin-inline: 0.8rem;
 }
 
 .userName {
     font-size: 1rem;
+    margin: 1rem 0;
     color: var(--secondary-color);
 }
 
@@ -317,10 +313,10 @@ main {
 }
 
 .commentPicture {
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
     border: 2px solid var(--primary-color);
-    border-radius: 50px;
+    border-radius: 14px;
     margin-inline: 0.8rem;
 }
 
@@ -424,7 +420,7 @@ footer {
     .mainUserLogo {
         width: 5rem;
         height: auto;
-        border-radius: 50px;
+        border-radius: 38px;
     }
     
     main {
@@ -437,7 +433,15 @@ footer {
         background-size: 90%;
         background-attachment: fixed;
     }
-    
+    .userLogo, 
+    .commentPicture {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 16px;
+    }
+    .userName {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 961px) {
@@ -459,9 +463,21 @@ footer {
         max-width: 661px;
         margin: 0 auto .5rem;
     }
+    .userLogo,
+    .commentPicture {
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 18px;
+    }
+    .userName {
+        font-size: 1.3rem;
+    }
 }
 
 @media screen and (min-width: 1281px) {
+    body {
+        font-size: 1.1rem;
+    }
     .columnOfPosts {
         min-width: 70%;
         /*border-inline: 1px solid var(--primary-color);*/
@@ -469,6 +485,15 @@ footer {
 
     .post {
         max-width: 872px;
+    }
+    .userLogo,
+    .commentPicture {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 20px;
+    }
+    .userName {
+        font-size: 1.5rem;
     }
 }
 
