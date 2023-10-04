@@ -43,9 +43,12 @@ About task repartition :
 | footerDisplay           | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | Responsive              | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
 
-## Colors :
+## Colors & Fonts :
 
 * Blue : #EBF2FA : background
 * Yellow : #FAF45E : Text tilte
 * Purple : #A306B6 : Background tilte
 * Black : #2E282A : Text
+
+* Font title : filson Pro, sans sérif
+* Paragraph font : Proxima Nova, sans sérif
