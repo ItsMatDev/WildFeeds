@@ -50,7 +50,6 @@ header {
     border-bottom: 2px solid var(--dark);
     box-shadow: 2px 2px 2px;
     background-color: var(--primary-color);
-    margin-bottom: 1rem;
     display: flex;
     position: sticky;
     top: 0;
@@ -71,8 +70,6 @@ header {
     color: var(--secondary-color);
     font-size: 100%;
     padding-left: 2px;
-
-
 }
 
 a {
@@ -103,9 +100,14 @@ a {
 
 }
 
+main {
+    width: 100%;
+}
+
 .createPost {
     border: 1px solid var(--dark);
     border-radius: 10px;
+    margin-top: 1rem;
     padding: 0.5rem;
     width: 10rem;
     background-color: var(--background-primary);
@@ -128,7 +130,6 @@ a {
     margin-bottom: 0.5rem;
     margin-right: 1rem;
     border-radius: 10px;
-
 }
 
 .sharedPostContainer{
@@ -234,6 +235,10 @@ a {
     flex-direction: row-reverse;
 }
 
+
+.buttonBox:last-child {
+    margin-right: 1rem;
+}
 .buttonLike {
     display: flex;
     align-items: center;
@@ -260,12 +265,15 @@ a {
 
 .commentsContainer .buttonSubmit {
     margin-top: .5rem;
+    margin-right: 0;
 }
 
 .commentsSectionHeader {
     display: flex;
-    margin: 0 0 0 auto;
-    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
 }
 
 .commentInput {
@@ -278,13 +286,17 @@ a {
     background-color: var(--background-primary);
 }
 
+.commentInput:focus {
+    background-color: #d7e4f5;
+}
+
 .commentInput::placeholder {
     text-align: center;
 }
 
 .commentProfile {
     padding: .2rem;
-    width: 20%;
+    width: auto;
 }
 
 .commentPicture {
@@ -368,14 +380,15 @@ footer {
 
 .footerElements {
      color : var(--secondary-color)
+
 }
 
 @media screen and (min-width: 660px) {
 
-    .columnOfPosts {
-        width: 70%;
-        border-inline: 1px solid var(--primary-color);
-        padding-inline: 10rem;
+    .post {
+        max-width: 660px;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
     
     header {
@@ -396,4 +409,49 @@ footer {
         height: auto;
         border-radius: 50px;
     }
+    
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(./assets/Logo\ Wild\ Purple.svg);
+        background-position:center center;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        background-attachment: fixed;
+    }
+    
 }
+
+@media screen and (min-width: 961px) {
+    .post {
+        max-width: 70%;
+    }
+
+    .commentsContainer {
+        justify-content: center;
+    }
+    .commentsSectionHeader {
+        width: 661px;
+        justify-content: flex-end;
+    }
+    .commentInput {
+        width: calc(661px - 87px - 64px);
+    }
+    .commentBox {
+        max-width: 661px;
+        margin: 0 auto .5rem;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .columnOfPosts {
+        min-width: 70%;
+        /*border-inline: 1px solid var(--primary-color);*/
+    }
+
+    .post {
+        max-width: 872px;
+    }
+}
+
