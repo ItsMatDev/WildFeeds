@@ -24,6 +24,8 @@ About task repartition :
 | postAnimation           | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonSettingsDisplay   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonSettingsFunction  | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonModifyDisplay     | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonModifyFunction    | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | butonnShareDisplay      | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonShareFunction     | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonCommentDisplay    | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> |
