@@ -1,7 +1,10 @@
-const createPostButton = document.querySelectorAll(".createPost");
+const createPostButton = document.querySelector(".createPost");
 const buttonSettings = document.querySelectorAll(".buttonSettingsPicture");
 const buttonShare = document.querySelectorAll(".buttonShare");
+const buttonModify = document.querySelectorAll(".buttonModifyPicture");
 const elementContainerOfPosts = document.body.querySelector(".columnOfPosts");
+
+// Fonction qui crée un élement HTML, avec une/des class css associé et du texte à l'intérieur
 
 function createElementHTML(elementHTML, className, text = "") {
   const element = document.createElement(`${elementHTML}`);
@@ -18,6 +21,8 @@ function createImgElementHTML(classe, src, alt) {
   return image;
 }
 
+// Fonction qui donne une action au bouton Settings
+
 function setButtonSettings(buttonArray) {
   buttonArray.forEach((button) => {
     const parentPost = button.closest(".post");
@@ -31,6 +36,83 @@ function setButtonSettings(buttonArray) {
     }
   });
 }
+
+// Fonction qui donne une action au bouton Modify
+
+function setButtonModify(buttonArray) {
+  buttonArray.forEach((button) => {
+    const parentPost = button.closest(".post");
+    const currentUserName = parentPost.querySelector(".userName");
+    if (currentUserName.innerHTML === "Pierre Adrien") {
+      button.addEventListener("click", () => {
+        const currentPostContentTextPicture = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+        const currentPostContentText =
+          parentPost.querySelector(".postContentText");
+        const currentPostContentPicture = parentPost.querySelector(
+          ".postContentPicture"
+        );
+        const inputText = parentPost.querySelector(".postContentText");
+        const inputImage = parentPost.querySelector(".postContentPicture");
+        parentPost.querySelector(".postContentPicture");
+        currentPostContentTextPicture.removeChild(currentPostContentText);
+        currentPostContentTextPicture.removeChild(currentPostContentPicture);
+
+        const modifyContentInputText = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputText.value = inputText.innerHTML;
+        const modifyContentInputImage = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputImage.value = inputImage.src;
+        const postParentContent = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+
+        postParentContent.appendChild(modifyContentInputText);
+        postParentContent.appendChild(modifyContentInputImage);
+        const buttonConfirm = createElementHTML(
+          "button",
+          "buttonConfirm basicStyleButton",
+          "Modify"
+        );
+        const buttonComments = parentPost.querySelector(".buttonComments");
+        const buttonBox = parentPost.querySelector(".buttonBox");
+        buttonBox.appendChild(buttonConfirm);
+
+        buttonComments.style.display = "none";
+        buttonConfirm.addEventListener("click", () => {
+          buttonComments.style.display = "initial";
+          buttonConfirm.style.display = "none";
+          const postContentText = createElementHTML("p", "postContentText");
+          const postContentTextPicture = parentPost.querySelector(
+            ".postContentTextPicture"
+          );
+          postContentTextPicture.appendChild(postContentText);
+          const postContentPicture = createElementHTML(
+            "img",
+            "postContentPicture"
+          );
+          postContentTextPicture.appendChild(postContentPicture);
+
+          postContentText.innerHTML = modifyContentInputText.value;
+          postContentPicture.src = modifyContentInputImage.value;
+          postContentPicture.alt = "";
+          postParentContent.removeChild(modifyContentInputText);
+          postParentContent.removeChild(modifyContentInputImage);
+        });
+      });
+    } else {
+      button.style.display = "none";
+    }
+  });
+}
+
+// Fonction qui donne une action au bouton share
 
 function setButtonShare(buttonArray) {
   buttonArray.forEach((button) => {
@@ -53,7 +135,7 @@ function setButtonShare(buttonArray) {
 
       elementContainerOfPosts.insertBefore(
         sharedPostContainer,
-        createPostButton[0].nextSibling
+        createPostButton.nextSibling
       );
       const buttonSetting = sharedPostContainer.querySelectorAll(
         ".buttonSettingsPicture"
@@ -96,42 +178,44 @@ function setButtonShare(buttonArray) {
   });
 }
 
+setButtonModify(buttonModify);
 setButtonSettings(buttonSettings);
 setButtonShare(buttonShare);
 
-createPostButton.forEach((createPostButton) => {
-  createPostButton.addEventListener("click", function () {
-    const template = document.body.querySelector(".postTemplate");
-    const cloneTemplate = template.content.cloneNode(true);
-    const newPost = cloneTemplate.querySelector("section");
-    createPostButton.insertAdjacentElement("afterend", newPost);
+// Donne une action au bouton crée un nouveau post
 
-    const userName = document.querySelector(".userName");
-    userName.innerHTML = "Pierre Adrien";
-    const inputText = createElementHTML("input", "commentInput");
-    const inputImage = createElementHTML("input", "commentInput");
-    inputText.style.marginBlock = "1rem";
-    inputImage.style.marginBottom = "1rem";
+createPostButton.addEventListener("click", () => {
+  const template = document.body.querySelector(".postTemplate");
+  const cloneTemplate = template.content.cloneNode(true);
+  const newPost = cloneTemplate.querySelector("article");
+  createPostButton.insertAdjacentElement("afterend", newPost);
 
-    newPost.querySelector(".postContentTextPicture").appendChild(inputText);
-    inputText.placeholder = "Write your text here";
-    newPost.querySelector(".postContentTextPicture").appendChild(inputImage);
-    inputImage.placeholder = "Put your image URL here";
+  const userName = document.querySelector(".userName");
+  userName.innerHTML = "Pierre Adrien";
+  const inputText = createElementHTML("input", "commentInput");
+  const inputImage = createElementHTML("input", "commentInput");
+  inputText.style.marginBlock = "1rem";
+  inputImage.style.marginBottom = "1rem";
+  
+  newPost.querySelector(".postContentTextPicture").appendChild(inputText);
+  inputText.placeholder = "Write your text here";
+  newPost.querySelector(".postContentTextPicture").appendChild(inputImage);
+  inputImage.placeholder = "Put your image URL here";
 
-    // Create the button to write a new post
+  // Crée le bouton qui crée un nouveau post
 
-    const buttonBox = document.querySelector(".buttonBox");
-    const buttonCreate = createElementHTML(
-      "button",
-      "buttonCreate basicStyleButton",
-      "Create"
-    );
+  const buttonBox = document.querySelector(".buttonBox");
+  const buttonCreate = createElementHTML(
+    "button",
+    "buttonCreate basicStyleButton",
+    "Create"
+  );
 
-    buttonBox.appendChild(buttonCreate);
+  buttonBox.appendChild(buttonCreate);
 
-    // Button Create function on click
+      // Donne une action au bouton crée
 
-    buttonCreate.addEventListener("click", () => {
+      buttonCreate.addEventListener("click", () => {
       const inputTextValue = inputText.value;
       const inputImageValue = inputImage.value;
       const postContentText = createElementHTML("p", "postContentText");
@@ -144,36 +228,37 @@ createPostButton.forEach((createPostButton) => {
       postContentText.innerHTML = inputTextValue;
       buttonCreate.style.display = "none";
 
-      // Création de la section commentaire du nouveau post
+    // Création de la section commentaire du nouveau post
 
-      const newCommentsContainer = createElementHTML(
-        "section",
-        "commentsContainer"
-      );
-      newPost.appendChild(newCommentsContainer);
-      createCommentsSectionHeader(newCommentsContainer);
-      const newSubmitButton = newPost.querySelectorAll(".buttonSubmit");
-      setSubmitButtons(newSubmitButton);
+    const newCommentsContainer = createElementHTML(
+      "section",
+      "commentsContainer"
+    );
+    newPost.appendChild(newCommentsContainer);
+    createCommentsSectionHeader(newCommentsContainer);
+    const newSubmitButton = newPost.querySelectorAll(".buttonSubmit");
+    setSubmitButtons(newSubmitButton);
 
-      // Création du bouton commentaires du nouveau post
+    // Création du bouton commentaires du nouveau post
 
-      const buttonComment = createElementHTML(
-        "button",
-        "buttonComments basicStyleButton",
-        "Commentaires"
-      );
-      buttonBox.appendChild(buttonComment);
-      setCommentButton(buttonComment);
-      commentsCount(newCommentsContainer);
-      postContentTextPicture.removeChild(inputText);
-      postContentTextPicture.removeChild(inputImage);
-    });
-
-    elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
-
-    const buttonSettings = newPost.querySelectorAll(".buttonSettingsPicture");
-    setButtonSettings(buttonSettings);
+    const buttonComment = createElementHTML(
+      "button",
+      "buttonComments basicStyleButton",
+      "Commentaires"
+    );
+    buttonBox.appendChild(buttonComment);
+    setCommentButton(buttonComment);
+    commentsCount(newCommentsContainer);
+    postContentTextPicture.removeChild(inputText);
+    postContentTextPicture.removeChild(inputImage);
   });
+
+  elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
+
+  const buttonSettings = newPost.querySelectorAll(".buttonSettingsPicture");
+  setButtonSettings(buttonSettings);
+  const buttonModifys = newPost.querySelectorAll(".buttonModifyPicture");
+  setButtonModify(buttonModifys);
 });
 
 // Gestion de l'espace commentaires
