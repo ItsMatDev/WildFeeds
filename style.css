@@ -117,6 +117,7 @@ main {
     width: 10rem;
     background-color: var(--background-primary);
 }
+
 .createPost:hover {
     cursor: pointer;
     background-color: var(--primary-color);
@@ -142,10 +143,10 @@ main {
     cursor: pointer;
 }
 
-.sharedPostContainer{
+.sharedPostContainer {
     width: auto;
     margin-top: 1rem;
-    background-color: #a306b6;
+    background-color: var(--primary-color);
     border-radius: 10px;
     animation-name: slide-in;
     animation-duration: 2s;
@@ -154,7 +155,7 @@ main {
 
 .post {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     border-radius: 10px;
     background-color: var(--background-primary);
     margin: 1rem 0rem;
@@ -163,6 +164,7 @@ main {
     animation-duration: 2s;
     animation-delay: 0s;
 }
+
 .post:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
@@ -172,7 +174,7 @@ main {
     align-items: center;
     justify-content: space-between;
     background-color: var(--primary-color);
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--dark);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -221,23 +223,26 @@ main {
     width: 2rem;
     height: 2rem;
 }
+
 .buttonModifyPicture {
     width: 1.5rem;
 }
-.buttonModifyPicture:hover{
+
+.buttonModifyPicture:hover {
     transform: rotate(0.05rad);
 }
 
 .buttonModify:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
+
 .buttonSettingsPicture:hover {
     transform: rotate(0.05rad);
     cursor: pointer;
 }
 
 .buttonCorner {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -274,11 +279,13 @@ main {
 .buttonBox:last-child {
     margin-right: 1rem;
 }
+
 .buttonLike {
     display: flex;
     align-items: center;
 }
-.likeCount{
+
+.likeCount {
     margin-right: 0.4rem;
 }
 
@@ -406,19 +413,24 @@ button {
 }
 
 footer {
-    text-align: center;
-    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.6rem;
     width: 100vw;
     height: 2.5rem;
     border: 1px solid var(--dark);
     background-color: var(--primary-color);
     align-items: center;
+    color: var(--secondary-color)
 }
 
-.footerElements {
-     color : var(--secondary-color)
+.footerlinks {
+    text-decoration: none;
+    color : var(--secondary-color);
+
 
 }
+
 
 @media screen and (min-width: 660px) {
 
@@ -427,42 +439,47 @@ footer {
         margin-left: 2rem;
         margin-right: 2rem;
     }
-    
+
     header {
         height: 5rem;
     }
 
     .wildfeedsTitle {
-     font-size: 3rem;
+        font-size: 3rem;
     }
+
     .wildfeedsLogo {
         width: 9%;
     }
+
     .loggedUserName {
         font-size: 1.5rem;
     }
+
     .mainUserLogo {
         width: 5rem;
         height: auto;
         border-radius: 38px;
     }
-    
+
     main {
         display: flex;
         justify-content: center;
         align-items: center;
         background-image: url(./assets/Logo\ Wild\ Purple.svg);
-        background-position:center center;
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: 90%;
         background-attachment: fixed;
     }
-    .userLogo, 
+
+    .userLogo,
     .commentPicture {
         width: 2rem;
         height: 2rem;
         border-radius: 16px;
     }
+
     .userName {
         font-size: 1.2rem;
     }
@@ -476,25 +493,33 @@ footer {
     .commentsContainer {
         justify-content: center;
     }
+
     .commentsSectionHeader {
         width: 661px;
         justify-content: flex-end;
     }
+
     .commentInput {
         width: calc(661px - 87px - 64px);
     }
+
     .commentBox {
         max-width: 661px;
         margin: 0 auto .5rem;
     }
+
     .userLogo,
     .commentPicture {
         width: 2.2rem;
         height: 2.2rem;
         border-radius: 18px;
     }
+
     .userName {
         font-size: 1.3rem;
+    }
+    footer {
+        font-size: 1rem;
     }
 }
 
@@ -502,21 +527,26 @@ footer {
     body {
         font-size: 1.1rem;
     }
+
     .columnOfPosts {
         min-width: 70%;
-        /*border-inline: 1px solid var(--primary-color);*/
     }
 
     .post {
         max-width: 872px;
     }
+
     .userLogo,
     .commentPicture {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 20px;
     }
+
     .userName {
         font-size: 1.5rem;
+    }
+    footer {
+        font-size: 1rem;
     }
 }
