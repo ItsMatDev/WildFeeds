@@ -220,7 +220,7 @@ const comments = [
     {
       name: "Emmanuel Macron",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Bonne chance à tous et bravo pour vos présentation!.",
+      comment: "Bonne chance à tous pour vos présentation!.",
     },
     {
       name: "Lucas",
@@ -235,42 +235,51 @@ const comments = [
   ],
   [
     {
-      name: "Yoann Fortin",
+      name: "Lucas",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Moi je suis l'avant dernière image...",
-    },
-    {
-      name: "Name Lastname",
-      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium.",
+      comment: "Il manque les formateurs",
     },
     {
       name: "Pierre Adrien",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Lorem ipsum3",
-    },
-    {
-      name: "Name Lastname",
-      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Lorem ipsum3",
-    },
-    {
-      name: "Name Lastname",
-      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Lorem ipsum3",
+      comment: "Super promo!",
     },
   ],
   [
     {
       name: "Matthieu",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Arrête avec tes vannes à 2 balles, fais du code!",
+      comment: "Miam!",
     },
     {
-      name: "Lucas",
+      name: "Pierre Adrien",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "T'es lourd!",
+      comment: "Stylé!",
+    },
+  ],
+  [
+    {
+      name: "Pierre Adrien",
+      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+      comment: "Click!",
+    },
+    {
+      name: "Matthieu",
+      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+      comment: "J'ai déjà terminé le jeu :)",
+    },
+  ],
+
+  [
+    {
+      name: "Hélène",
+      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+      comment: "Il ressemble pas à ça!",
+    },
+    {
+      name: "Matthieu",
+      picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
+      comment: "Le projet fil rouge de la promo!",
     },
   ],
 ];
@@ -314,6 +323,7 @@ function createCommentsSectionHeader(commentsContainer) {
   commentsContainer.appendChild(commentsSectionHeader);
   const commentInput = createElementHTML("input", "commentInput");
   const submitButton = createElementHTML("button", "buttonSubmit basicStyleButton", "Submit");
+  commentInput.placeholder = "Écris ton commentaire ici";
   appendChilds(commentsSectionHeader, commentInput, submitButton);
 }
 
