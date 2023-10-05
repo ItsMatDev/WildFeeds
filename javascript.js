@@ -220,7 +220,7 @@ const comments = [
     {
       name: "Emmanuel Macron",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Bonne chance à tous pour vos présentation!.",
+      comment: "Bonne chance à tous pour vos présentations!",
     },
     {
       name: "Lucas",
@@ -254,7 +254,7 @@ const comments = [
     {
       name: "Pierre Adrien",
       picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-      comment: "Stylé!",
+      comment: "Je cherche toujours les restos dans le coin",
     },
   ],
   [
