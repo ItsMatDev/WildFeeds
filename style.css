@@ -88,13 +88,11 @@ a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    text-decoration: none;
 }
 
 .loggedUserName {
     color: var(--secondary-color);
-    font-size: 80%;
-    align-content: center;
+    font-size: 60%;
 }
 
 .mainUserLogo {
@@ -415,7 +413,7 @@ footer {
         width: 9%;
     }
     .loggedUserName {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .mainUserLogo {
         width: 5rem;

@@ -176,7 +176,7 @@ createPostButton.forEach((createPostButton) => {
 const buttonComments = document.querySelectorAll(".buttonComments");
 const post1 = document.querySelector(".post1");
 const commentsPost1 = [
-    { name: "Emmanuel Macron", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Bonne chance à tous et bravo pour vos présentation!." },
+    { name: "Emmanuel Macron", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Bonne chance à tous et bravo pour vos présentations!." },
     { name: "Lucas", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "This is my moment of glory!!!" },
     { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Merci Manu!" }
 ]
