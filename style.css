@@ -500,7 +500,8 @@ footer {
   }
   .columnOfPosts {
     min-width: 70%;
-    /*border-inline: 1px solid var(--primary-color);*/
+    margin-inline: 0rem;
+
   }
 
   .post {

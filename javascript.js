@@ -31,6 +31,18 @@ function setButtonRemoves(buttonArray) {
   });
 }
 
+// Fonction qui supprime des noeuds d'un parent
+function removeChilds(parentNode, firstNode, secondNode) {
+  parentNode.removeChild(firstNode);
+  parentNode.removeChild(secondNode);
+}
+
+// Fonction qui ajoute des noeuds à un parent
+function appendChilds(parentNode, firstNode, secondNode) {
+  parentNode.appendChild(firstNode);
+  parentNode.appendChild(secondNode);
+}
+
 // Fonction qui donne une action au bouton Modify
 
 function setButtonModify(buttonArray) {
@@ -45,17 +57,15 @@ function setButtonModify(buttonArray) {
         const inputText = parentPost.querySelector(".postContentText");
         const inputImage = parentPost.querySelector(".postContentPicture");
         parentPost.querySelector(".postContentPicture");
-        currentPostContentTextPicture.removeChild(currentPostContentText);
-        currentPostContentTextPicture.removeChild(currentPostContentPicture);
+
+        removeChilds(currentPostContentTextPicture, currentPostContentText, currentPostContentPicture);
 
         const modifyContentInputText = createElementHTML("input", "commentInput");
         modifyContentInputText.value = inputText.innerHTML;
         const modifyContentInputImage = createElementHTML("input", "commentInput");
         modifyContentInputImage.value = inputImage.src;
         const postParentContent = parentPost.querySelector(".postContentTextPicture");
-
-        postParentContent.appendChild(modifyContentInputText);
-        postParentContent.appendChild(modifyContentInputImage);
+        appendChilds(postParentContent, modifyContentInputText, modifyContentInputImage);
         const buttonConfirm = createElementHTML("button", "buttonConfirm basicStyleButton", "Modify");
         const buttonComments = parentPost.querySelector(".buttonComments");
         const buttonBox = parentPost.querySelector(".buttonBox");
@@ -67,15 +77,14 @@ function setButtonModify(buttonArray) {
           buttonConfirm.style.display = "none";
           const postContentText = createElementHTML("p", "postContentText");
           const postContentTextPicture = parentPost.querySelector(".postContentTextPicture");
-          postContentTextPicture.appendChild(postContentText);
           const postContentPicture = createElementHTML("img", "postContentPicture");
-          postContentTextPicture.appendChild(postContentPicture);
+          appendChilds(postContentTextPicture, postContentText, postContentPicture);
 
           postContentText.innerHTML = modifyContentInputText.value;
           postContentPicture.src = modifyContentInputImage.value;
           postContentPicture.alt = "";
-          postParentContent.removeChild(modifyContentInputText);
-          postParentContent.removeChild(modifyContentInputImage);
+
+          removeChilds(postParentContent, modifyContentInputText, modifyContentInputImage);
         });
       });
     } else {
@@ -93,8 +102,7 @@ function setButtonShare(buttonArray) {
       const sharedPost = parentPost.cloneNode(true);
       const sharedPostContainer = createElementHTML("div", "sharedPostContainer");
       const postLogoName = parentPost.querySelector(".postHead").cloneNode(true);
-      sharedPostContainer.appendChild(postLogoName);
-      sharedPostContainer.appendChild(sharedPost);
+      appendChilds(sharedPostContainer, postLogoName, sharedPost);
       document.body.insertBefore(sharedPostContainer, sharedPost.nextSibling);
       const currentUserNamePostShared = sharedPostContainer.querySelector(".userName");
       currentUserNamePostShared.innerHTML = "Shared By Pierre Adrien";
@@ -105,7 +113,7 @@ function setButtonShare(buttonArray) {
       buttonRemove.forEach((button) => {
         button.addEventListener("click", () => {
           const sharedPostContainer = button.closest(".sharedPostContainer");
-          elementContainerOfPosts.removeChild(sharedPostContainer);
+          removeChilds(elementContainerOfPosts, sharedPostContainer);
         });
       });
 
@@ -154,9 +162,9 @@ createPostButton.addEventListener("click", () => {
   inputImage.style.marginBottom = "1rem";
 
   newPost.querySelector(".postContentTextPicture").appendChild(inputText);
-  inputText.placeholder = "Write your text here";
+  inputText.placeholder = "Écris ton texte ici";
   newPost.querySelector(".postContentTextPicture").appendChild(inputImage);
-  inputImage.placeholder = "Put your image URL here";
+  inputImage.placeholder = "Place l'URL de ton image ici";
 
   // Crée le bouton qui crée un nouveau post
 
@@ -172,9 +180,8 @@ createPostButton.addEventListener("click", () => {
     const inputImageValue = inputImage.value;
     const postContentText = createElementHTML("p", "postContentText");
     const postContentTextPicture = newPost.querySelector(".postContentTextPicture");
-    postContentTextPicture.appendChild(postContentText);
     const postContentPicture = createElementHTML("img", "postContentPicture", "", inputImageValue, "");
-    postContentTextPicture.appendChild(postContentPicture);
+    appendChilds(postContentTextPicture, postContentText, postContentPicture);
     postContentText.innerHTML = inputTextValue;
     buttonCreate.style.display = "none";
 
@@ -192,8 +199,7 @@ createPostButton.addEventListener("click", () => {
     buttonBox.appendChild(buttonComment);
     setCommentButton(buttonComment);
     commentsCount(newCommentsContainer);
-    postContentTextPicture.removeChild(inputText);
-    postContentTextPicture.removeChild(inputImage);
+    removeChilds(postContentTextPicture, inputText, inputImage);
   });
 
   elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
@@ -307,10 +313,8 @@ function createCommentsSectionHeader(commentsContainer) {
   const commentsSectionHeader = createElementHTML("div", "commentsSectionHeader");
   commentsContainer.appendChild(commentsSectionHeader);
   const commentInput = createElementHTML("input", "commentInput");
-  commentInput.placeholder = "write a new comment";
-  commentsSectionHeader.appendChild(commentInput);
   const submitButton = createElementHTML("button", "buttonSubmit basicStyleButton", "Submit");
-  commentsSectionHeader.appendChild(submitButton);
+  appendChilds(commentsSectionHeader, commentInput, submitButton);
 }
 
 // Insère les commentaires existants dans leur post respectif
