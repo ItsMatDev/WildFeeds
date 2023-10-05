@@ -5,11 +5,10 @@
 The main goals of the project is to reproduct a wall of a social network and that everyone work a little in HTML, CSS and JavaScript.  
 We decided to base our theme on the wild code school.
 
-
 About task repartition :
 
-| Task \  Name            | Matthieu  | P. A.   | Lucas   | 
-| ------                  | -------   | ------- | ------- | 
+| Task \ Name             | Matthieu                    | P. A.                       | Lucas                       |
+| ----------------------- | --------------------------- | --------------------------- | --------------------------- |
 | headerTitle             | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [X] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | headerLogo              | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | headerNav               | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
@@ -22,8 +21,8 @@ About task repartition :
 | newPostContent          | <ul> <li> - [x] </li> </ul> | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | newPostDisplay          | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | postAnimation           | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| buttonSettingsDisplay   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
-| buttonSettingsFunction  | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonRemovesDisplay    | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
+| buttonRemovesFunction   | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonModifyDisplay     | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | buttonModifyFunction    | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
 | butonnShareDisplay      | <ul> <li> - [x] </li> </ul> | <ul> <li> - [ ] </li> </ul> | <ul> <li> - [ ] </li> </ul> |
@@ -45,10 +44,10 @@ About task repartition :
 
 ## Colors & Fonts :
 
-* Blue : #EBF2FA : background
-* Yellow : #FAF45E : Text tilte
-* Purple : #A306B6 : Background tilte
-* Black : #2E282A : Text
+- Blue : #EBF2FA : background
+- Yellow : #FAF45E : Text tilte
+- Purple : #A306B6 : Background tilte
+- Black : #2E282A : Text
 
-* Font title : filson Pro, sans sérif
-* Paragraph font : Proxima Nova, sans sérif
+- Font title : filson Pro, sans sérif
+- Paragraph font : Proxima Nova, sans sérif

@@ -9,131 +9,132 @@
 </head>
 
 <body>
-
-    <header>
-        <a href="index.html">
-            <img src="assets/logo Wild Yellow.svg" alt="WildFeeds logo" class="wildfeedsLogo">
-
-            <h1 class="wildfeedsTitle">ildFeeds</h1>
-        </a>
-        <p class="loggedUserName">Pierre Adrien</p>
-        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="" class="mainUserLogo">
-
-    </header>
-    <main>
-        <section class="columnOfPosts">
-            <button class="createPost">Créer nouveau Post</button>
-
-            <template class="postTemplate">
-                <article class="post">
-                    <section class="postHead">
-                        <hgroup class="postHeadLogoName">
-                            <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt=""
-                                class="userLogo">
-                            <h2 class="userName"></h2>
-                        </hgroup>
-                        <div class="buttonCorner">
-                            <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt=""
-                                    class="buttonModifyPicture"></button>
-                            <button class="buttonSettings">
-                                <img src="assets/logo/delete.svg" alt="Settings button" class="buttonSettingsPicture">
-                            </button>
-                        </div>
-                    </section>
-                    <section class="postContent">
-                        <div class="postContentTextPicture">
-                        </div>
-                        <div class="buttonBox">
-                        </div>
-                    </section>
-            </template>
-            <!-- reprendre la même semantique que le template pour les post suivants-->
+    
+        <header>
+            <a href="index.html">
+                <img src="assets/logo Wild Yellow.svg" alt="WildFeeds logo" class="wildfeedsLogo">
+    
+                <h1 class="wildfeedsTitle">ildFeeds</h1>
+            </a>
+            <h1 class="loggedUserName">Pierre Adrien</h1>
+            <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
+                class="mainUserLogo">
+    
+        </header>
+        <main>
+        <section class="columnOfPosts">    
+        <button class="createPost">Write new Post</button>
+        
+        <template class="postTemplate"> 
             <article class="post">
-                <div class="postHead">
-                    <div class="postHeadLogoName">
-                        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
-                            class="userLogo">
-                        <h1 class="userName">Matthieu</h1>
-                    </div>
-                    <button class="buttonSettings">
-                        <img src="assets/logo/delete.svg" alt="Settings button" class="buttonSettingsPicture">
-                    </button>
-                </div>
-                <div class="postContent">
-                    <div class="postContentTextPicture">
-                        <p class="postContentText">Aujourd'hui c'est la journée des démo pour tout les étudiants de la
-                            Wild Code School! Venez nous voir nombreux pour ces présentations de nos premiers projets
-                        </p>
-                        <img src="https://media.istockphoto.com/id/499517325/fr/photo/un-homme-parle-%C3%A0-une-conf%C3%A9rence-daffaires.webp?b=1&s=612x612&w=0&k=20&c=e3kNZn-x57-Czo32v2wqEBfClUmkK3StcAWnMBvsySo="
-                            alt="Post picture" class="postContentPicture">
-                    </div>
-                    <div class="buttonBox">
-                        <button class="buttonComments basicStyleButton">Comments</button>
-                        <button class="buttonShare basicStyleButton">Share!</button>
-                        <button class="buttonLike basicStyleButton">
-                            <p class="likeCount">0</p>
-                            <img src="assets/like-empty.svg" alt="like thumb picture" class="likePicture">
-                        </button>
-                    </div>
-                </div>
-
-            </article>
-            <article class="post">
-                <div class="postHead">
-                    <div class="postHeadLogoName">
-                        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
-                            class="userLogo">
-                        <h1 class="userName">Lucas</h1>
-                    </div>
-                    <button class="buttonSettings">
-                        <img src="assets/logo/delete.svg" alt="Settings button" class="buttonSettingsPicture">
-                    </button>
-                </div>
-                <div class="postContent">
-                    <div class="postContentTextPicture">
-                        <p class="postContentText">What's a dev life like...
-                        </p>
-                        <img src="assets/meme developer.jpeg" alt="Post picture" class="postContentPicture">
-                    </div>
-                    <div class="buttonBox">
-                        <button class="buttonComments basicStyleButton">Comments</button>
-                        <button class="buttonShare basicStyleButton">Share!</button>
-                        <button class="buttonLike basicStyleButton">
-                            <p class="likeCount">0</p>
-                            <img src="assets/like-empty.svg" alt="like thumb picture" class="likePicture">
-                        </button>
-                    </div>
-                </div>
-
-            </article>
-            <article class="post">
-                <div class="postHead">
-                    <div class="postHeadLogoName">
-                        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
-                            class="userLogo">
-                        <h1 class="userName">Pierre Adrien</h1>
-                    </div>
-                    <div class="buttonCorner">
-                        <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt=""
-                                class="buttonModifyPicture"></button>
-                        <button class="buttonSettings">
-                            <img src="assets/logo/delete.svg" alt="Settings button" class="buttonSettingsPicture">
-                        </button>
-                    </div>
-                </div>
-                <div class="postContent">
-                    <div class="postContentTextPicture">
-                        <p class="postContentText">Pensée du jour !
-                        </p>
-                        <img src="assets/meme dev.jpeg" alt="Post picture" class="postContentPicture">
-                    </div>
-                    <div class="buttonBox">
-                        <button class="buttonComments basicStyleButton">Comments</button>
-                    </div>
-                </div>
-
-            </article>
+            <section class="postHead">
+                <hgroup class="postHeadLogoName">
+                    <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="" class="userLogo">
+                    <h2 class="userName"></h2>
+                    </hgroup>
+                <div class="buttonCorner">
+                <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt="" class="buttonModifyPicture"></button>
+                <button class="buttonRemoves">
+                    <img src="assets/logo/delete.svg" alt="Removes button"
+                        class="buttonRemovesPicture">
+                </button>
+            </div>
         </section>
+            <article class="postContent">
+                <div class="postContentTextPicture">
+                </div>
+                <div class="buttonBox">
+                </div>
+            </article>
+        </template>
+
+    <article class="post">
+        <section class="postHead">
+            <div class="postHeadLogoName">
+                <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
+                    class="userLogo">
+                <h2 class="userName">Matthieu</h2>
+            </div>
+            <button class="buttonRemoves">
+                <img src="assets/logo/delete.svg" alt="Removes button"
+                    class="buttonRemovesPicture">
+            </button>
+        </section>
+        <section class="postContent">
+            <div class="postContentTextPicture">
+                <p class="postContentText">Aujourd'hui c'est la journée des démo pour tout les étudiants de la Wild Code School! Venez nous voir nombreux pour ces présentations de nos premiers projets
+                </p>
+                <img src="https://media.istockphoto.com/id/499517325/fr/photo/un-homme-parle-%C3%A0-une-conf%C3%A9rence-daffaires.webp?b=1&s=612x612&w=0&k=20&c=e3kNZn-x57-Czo32v2wqEBfClUmkK3StcAWnMBvsySo=" alt="Post picture"
+                    class="postContentPicture">
+            </div>
+            <div class="buttonBox">
+                <button class="buttonComments basicStyleButton">Comments</button>
+                <button class="buttonShare basicStyleButton">Share!</button>
+                <button class="buttonLike basicStyleButton">
+                      <p class="likeCount">0</p>
+                    <img src="assets/like-empty.svg" alt="like thumb picture" class="likePicture">
+                </button>
+            </div>
+        </section>
+    </article>
+    <article class="post">
+        <section class="postHead">
+            <div class="postHeadLogoName">
+                <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
+                    class="userLogo">
+                <h2 class="userName">Lucas</h2>
+            </div>
+            <button class="buttonRemoves">
+                <img src="assets/logo/delete.svg" alt="Removes button"
+                    class="buttonRemovesPicture">
+            </button>
+        </section>
+        <section class="postContent">
+            <div class="postContentTextPicture">
+                <p class="postContentText">What's a dev life like...
+                </p>
+                <img src="assets/meme developer.jpeg" alt="Post picture"
+                    class="postContentPicture">
+            </div>
+            <div class="buttonBox">
+                <button class="buttonComments basicStyleButton">Comments</button>
+                <button class="buttonShare basicStyleButton">Share!</button>
+                <button class="buttonLike basicStyleButton">
+                    <p class="likeCount">0</p>
+                    <img src="assets/like-empty.svg" alt="like thumb picture" class="likePicture">
+                </button>
+            </div>
+        </section>
+
+    </article>
+    <article class="post">
+        <section class="postHead">
+            <div class="postHeadLogoName">
+                <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="User logo"
+                    class="userLogo">
+                <h2 class="userName">Pierre Adrien</h2>
+            </div>
+            <div class="buttonCorner">
+            <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt="" class="buttonModifyPicture"></button>
+            <button class="buttonRemoves">
+                <img src="assets/logo/delete.svg" alt="Removes button"
+                    class="buttonRemovesPicture">
+            </button>
+            </div>
+        </section>
+        <section class="postContent">
+            <div class="postContentTextPicture">
+                <p class="postContentText">Pensée du jour !
+                </p>
+                <img src="assets/meme dev.jpeg" alt="Post picture"
+                    class="postContentPicture">
+            </div>
+            <div class="buttonBox">
+                <button class="buttonComments basicStyleButton">Comments</button>
+            </div>
+        </section>
+    
+    </article>
     </main>
 
     <footer>
