@@ -400,6 +400,7 @@ button {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-inline: 0.2rem;
 }
 
 footer {
