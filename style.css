@@ -117,6 +117,7 @@ main {
   width: 10rem;
   background-color: var(--background-primary);
 }
+
 .createPost:hover {
   cursor: pointer;
   background-color: var(--primary-color);
@@ -142,38 +143,39 @@ main {
 }
 
 .sharedPostContainer {
-  width: auto;
-  margin-top: 1rem;
-  background-color: #a306b6;
-  border-radius: 10px;
-  animation-name: slide-in;
-  animation-duration: 2s;
-  animation-delay: 0s;
+    width: auto;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    animation-name: slide-in;
+    animation-duration: 2s;
+    animation-delay: 0s;
 }
 
 .post {
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: var(--background-primary);
-  margin: 1rem 0rem;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  animation-name: slide-in;
-  animation-duration: 2s;
-  animation-delay: 0s;
+    width: 100%;
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    background-color: var(--background-primary);
+    margin: 1rem 0rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    animation-name: slide-in;
+    animation-duration: 2s;
+    animation-delay: 0s;
 }
+
 .post:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .postHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--primary-color);
-  border-bottom: 1px solid black;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--dark);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .postHeadLogoName {
@@ -220,15 +222,17 @@ main {
   width: 2rem;
   height: 2rem;
 }
+
 .buttonModifyPicture {
   width: 1.5rem;
 }
+
 .buttonModifyPicture:hover {
-  transform: rotate(0.05rad);
+    transform: rotate(0.05rad);
 }
 
 .buttonModify:hover {
-  cursor: pointer;
+    cursor:pointer;
 }
 .buttonRemovesPicture:hover {
   transform: rotate(0.05rad);
@@ -272,6 +276,7 @@ main {
 .buttonBox:last-child {
   margin-right: 1rem;
 }
+
 .buttonLike {
   display: flex;
   align-items: center;
@@ -404,18 +409,24 @@ button {
 }
 
 footer {
-  text-align: center;
-  font-size: 0.8rem;
-  width: 100vw;
-  height: 2.5rem;
-  border: 1px solid var(--dark);
-  background-color: var(--primary-color);
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 0.6rem;
+    width: 100vw;
+    height: 2.5rem;
+    border: 1px solid var(--dark);
+    background-color: var(--primary-color);
+    align-items: center;
+    color: var(--secondary-color)
 }
 
-.footerElements {
-  color: var(--secondary-color);
+.footerlinks {
+    text-decoration: none;
+    color : var(--secondary-color);
+
+
 }
+
 
 @media screen and (min-width: 660px) {
   .post {
@@ -504,16 +515,21 @@ footer {
 
   }
 
-  .post {
-    max-width: 872px;
-  }
-  .userLogo,
-  .commentPicture {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 20px;
-  }
-  .userName {
-    font-size: 1.5rem;
-  }
+    .post {
+        max-width: 872px;
+    }
+
+    .userLogo,
+    .commentPicture {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 20px;
+    }
+
+    .userName {
+        font-size: 1.5rem;
+    }
+    footer {
+        font-size: 1rem;
+    }
 }
