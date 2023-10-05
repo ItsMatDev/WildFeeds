@@ -138,30 +138,34 @@ main {
   border-radius: 10px;
 }
 
+.basicStyleButton:hover {
+  cursor: pointer;
+}
+
 .deleteButton:hover {
   cursor: pointer;
 }
 
 .sharedPostContainer {
-    width: auto;
-    margin-top: 1rem;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    animation-name: slide-in;
-    animation-duration: 2s;
-    animation-delay: 0s;
+  width: auto;
+  margin-top: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  animation-name: slide-in;
+  animation-duration: 2s;
+  animation-delay: 0s;
 }
 
 .post {
-    width: 100%;
-    border: 1px solid var(--dark);
-    border-radius: 10px;
-    background-color: var(--background-primary);
-    margin: 1rem 0rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    animation-name: slide-in;
-    animation-duration: 2s;
-    animation-delay: 0s;
+  width: 100%;
+  border: 1px solid var(--dark);
+  border-radius: 10px;
+  background-color: var(--background-primary);
+  margin: 1rem 0rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  animation-name: slide-in;
+  animation-duration: 2s;
+  animation-delay: 0s;
 }
 
 .post:hover {
@@ -169,13 +173,13 @@ main {
 }
 
 .postHead {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--primary-color);
-    border-bottom: 1px solid var(--dark);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--dark);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .postHeadLogoName {
@@ -228,12 +232,13 @@ main {
 }
 
 .buttonModifyPicture:hover {
-    transform: rotate(0.05rad);
+  transform: rotate(0.05rad);
 }
 
 .buttonModify:hover {
-    cursor:pointer;
+  cursor: pointer;
 }
+
 .buttonRemovesPicture:hover {
   transform: rotate(0.05rad);
   cursor: pointer;
@@ -281,6 +286,7 @@ main {
   display: flex;
   align-items: center;
 }
+
 .likeCount {
   margin-right: 0.4rem;
 }
@@ -409,20 +415,20 @@ button {
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    font-size: 0.6rem;
-    width: 100vw;
-    height: 2.5rem;
-    border: 1px solid var(--dark);
-    background-color: var(--primary-color);
-    align-items: center;
-    color: var(--secondary-color)
+  display: flex;
+  justify-content: center;
+  font-size: 0.6rem;
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid var(--dark);
+  background-color: var(--primary-color);
+  align-items: center;
+  color: var(--secondary-color)
 }
 
 .footerlinks {
-    text-decoration: none;
-    color : var(--secondary-color);
+  text-decoration: none;
+  color: var(--secondary-color);
 
 
 }
@@ -442,12 +448,15 @@ footer {
   .wildfeedsTitle {
     font-size: 3rem;
   }
+
   .wildfeedsLogo {
     width: 9%;
   }
+
   .loggedUserName {
     font-size: 1.5rem;
   }
+
   .mainUserLogo {
     width: 5rem;
     height: auto;
@@ -464,12 +473,14 @@ footer {
     background-size: 90%;
     background-attachment: fixed;
   }
+
   .userLogo,
   .commentPicture {
     width: 2rem;
     height: 2rem;
     border-radius: 16px;
   }
+
   .userName {
     font-size: 1.2rem;
   }
@@ -483,23 +494,28 @@ footer {
   .commentsContainer {
     justify-content: center;
   }
+
   .commentsSectionHeader {
     width: 661px;
     justify-content: flex-end;
   }
+
   .commentInput {
     width: calc(661px - 87px - 64px);
   }
+
   .commentBox {
     max-width: 661px;
     margin: 0 auto 0.5rem;
   }
+
   .userLogo,
   .commentPicture {
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 18px;
   }
+
   .userName {
     font-size: 1.3rem;
   }
@@ -509,27 +525,29 @@ footer {
   body {
     font-size: 1.1rem;
   }
+
   .columnOfPosts {
     min-width: 70%;
     margin-inline: 0rem;
 
   }
 
-    .post {
-        max-width: 872px;
-    }
+  .post {
+    max-width: 872px;
+  }
 
-    .userLogo,
-    .commentPicture {
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 20px;
-    }
+  .userLogo,
+  .commentPicture {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 20px;
+  }
 
-    .userName {
-        font-size: 1.5rem;
-    }
-    footer {
-        font-size: 1rem;
-    }
+  .userName {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    font-size: 1rem;
+  }
 }
