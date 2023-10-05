@@ -137,7 +137,7 @@ main {
     border-radius: 10px;
 }
 
-.basicStyleButton:hover,
+
 .deleteButton:hover {
     cursor: pointer;
 }
@@ -205,20 +205,46 @@ main {
     background-color: var(--primary-color);
 }
 
-.buttonSettings:hover {
+.buttonSettingsPicture:hover {
     transform: rotate(0.05rad);
     cursor: pointer;
-}
-
-.buttonSettings:active {
-    box-shadow: 1px 1px 5px var(--secondary-color);
-
 }
 
 .buttonSettingsPicture {
     width: 2rem;
 }
 
+.buttonModify {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    width: 2rem;
+    height: 2rem;
+}
+.buttonModifyPicture {
+    width: 1.5rem;
+}
+.buttonModifyPicture:hover{
+    transform: rotate(0.05rad);
+}
+
+.buttonModify:hover {
+    cursor:pointer;
+}
+.buttonSettingsPicture:hover {
+    transform: rotate(0.05rad);
+    cursor: pointer;
+}
+
+.buttonCorner {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSettingsPicture {
+    width: 2rem;
+}
 
 .postContent {
     display: flex;
@@ -266,6 +292,7 @@ main {
     min-height: 50px;
     margin: 0 .3rem .5rem;
     display: flex;
+    align-items: center;
 }
 
 .visible {
@@ -379,7 +406,6 @@ button {
 }
 
 footer {
-    
     text-align: center;
     font-size: 0.8rem;
     width: 100vw;
@@ -494,4 +520,3 @@ footer {
         font-size: 1.5rem;
     }
 }
-

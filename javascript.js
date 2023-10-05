@@ -1,7 +1,10 @@
-const createPostButton = document.querySelectorAll(".createPost");
+const createPostButton = document.querySelector(".createPost");
 const buttonSettings = document.querySelectorAll(".buttonSettingsPicture");
 const buttonShare = document.querySelectorAll(".buttonShare");
+const buttonModify = document.querySelectorAll(".buttonModifyPicture");
 const elementContainerOfPosts = document.body.querySelector(".columnOfPosts");
+
+// Fonction qui crée un élement HTML, avec une/des class css associé et du texte à l'intérieur
 
 function createElementHTML(elementHTML, className, text = "") {
   const element = document.createElement(`${elementHTML}`);
@@ -9,6 +12,16 @@ function createElementHTML(elementHTML, className, text = "") {
   element.innerHTML = `${text}`;
   return element;
 }
+
+function createImgElementHTML(classe, src, alt) {
+  const image = document.createElement('img');
+  image.classList.add(classe);
+  image.src = src;
+  image.alt = alt;
+  return image;
+}
+
+// Fonction qui donne une action au bouton Settings
 
 function setButtonSettings(buttonArray) {
   buttonArray.forEach((button) => {
@@ -23,6 +36,83 @@ function setButtonSettings(buttonArray) {
     }
   });
 }
+
+// Fonction qui donne une action au bouton Modify
+
+function setButtonModify(buttonArray) {
+  buttonArray.forEach((button) => {
+    const parentPost = button.closest(".post");
+    const currentUserName = parentPost.querySelector(".userName");
+    if (currentUserName.innerHTML === "Pierre Adrien") {
+      button.addEventListener("click", () => {
+        const currentPostContentTextPicture = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+        const currentPostContentText =
+          parentPost.querySelector(".postContentText");
+        const currentPostContentPicture = parentPost.querySelector(
+          ".postContentPicture"
+        );
+        const inputText = parentPost.querySelector(".postContentText");
+        const inputImage = parentPost.querySelector(".postContentPicture");
+        parentPost.querySelector(".postContentPicture");
+        currentPostContentTextPicture.removeChild(currentPostContentText);
+        currentPostContentTextPicture.removeChild(currentPostContentPicture);
+
+        const modifyContentInputText = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputText.value = inputText.innerHTML;
+        const modifyContentInputImage = createElementHTML(
+          "input",
+          "commentInput"
+        );
+        modifyContentInputImage.value = inputImage.src;
+        const postParentContent = parentPost.querySelector(
+          ".postContentTextPicture"
+        );
+
+        postParentContent.appendChild(modifyContentInputText);
+        postParentContent.appendChild(modifyContentInputImage);
+        const buttonConfirm = createElementHTML(
+          "button",
+          "buttonConfirm basicStyleButton",
+          "Modify"
+        );
+        const buttonComments = parentPost.querySelector(".buttonComments");
+        const buttonBox = parentPost.querySelector(".buttonBox");
+        buttonBox.appendChild(buttonConfirm);
+
+        buttonComments.style.display = "none";
+        buttonConfirm.addEventListener("click", () => {
+          buttonComments.style.display = "initial";
+          buttonConfirm.style.display = "none";
+          const postContentText = createElementHTML("p", "postContentText");
+          const postContentTextPicture = parentPost.querySelector(
+            ".postContentTextPicture"
+          );
+          postContentTextPicture.appendChild(postContentText);
+          const postContentPicture = createElementHTML(
+            "img",
+            "postContentPicture"
+          );
+          postContentTextPicture.appendChild(postContentPicture);
+
+          postContentText.innerHTML = modifyContentInputText.value;
+          postContentPicture.src = modifyContentInputImage.value;
+          postContentPicture.alt = "";
+          postParentContent.removeChild(modifyContentInputText);
+          postParentContent.removeChild(modifyContentInputImage);
+        });
+      });
+    } else {
+      button.style.display = "none";
+    }
+  });
+}
+
+// Fonction qui donne une action au bouton share
 
 function setButtonShare(buttonArray) {
   buttonArray.forEach((button) => {
@@ -45,7 +135,7 @@ function setButtonShare(buttonArray) {
 
       elementContainerOfPosts.insertBefore(
         sharedPostContainer,
-        createPostButton[0].nextSibling
+        createPostButton.nextSibling
       );
       const buttonSetting = sharedPostContainer.querySelectorAll(
         ".buttonSettingsPicture"
@@ -88,42 +178,44 @@ function setButtonShare(buttonArray) {
   });
 }
 
+setButtonModify(buttonModify);
 setButtonSettings(buttonSettings);
 setButtonShare(buttonShare);
 
-createPostButton.forEach((createPostButton) => {
-  createPostButton.addEventListener("click", function () {
-    const template = document.body.querySelector(".postTemplate");
-    const cloneTemplate = template.content.cloneNode(true);
-    const newPost = cloneTemplate.querySelector("section");
-    createPostButton.insertAdjacentElement("afterend", newPost);
+// Donne une action au bouton crée un nouveau post
 
-    const userName = document.querySelector(".userName");
-    userName.innerHTML = "Pierre Adrien";
-    const inputText = createElementHTML("input", "commentInput");
-    const inputImage = createElementHTML("input", "commentInput");
-    inputText.style.marginBlock = "1rem";
-    inputImage.style.marginBottom = "1rem";
+createPostButton.addEventListener("click", () => {
+  const template = document.body.querySelector(".postTemplate");
+  const cloneTemplate = template.content.cloneNode(true);
+  const newPost = cloneTemplate.querySelector("article");
+  createPostButton.insertAdjacentElement("afterend", newPost);
 
-    newPost.querySelector(".postContentTextPicture").appendChild(inputText);
-    inputText.placeholder = "Write your text here";
-    newPost.querySelector(".postContentTextPicture").appendChild(inputImage);
-    inputImage.placeholder = "Put your image URL here";
+  const userName = document.querySelector(".userName");
+  userName.innerHTML = "Pierre Adrien";
+  const inputText = createElementHTML("input", "commentInput");
+  const inputImage = createElementHTML("input", "commentInput");
+  inputText.style.marginBlock = "1rem";
+  inputImage.style.marginBottom = "1rem";
+  
+  newPost.querySelector(".postContentTextPicture").appendChild(inputText);
+  inputText.placeholder = "Write your text here";
+  newPost.querySelector(".postContentTextPicture").appendChild(inputImage);
+  inputImage.placeholder = "Put your image URL here";
 
-    // Create the button to write a new post
+  // Crée le bouton qui crée un nouveau post
 
-    const buttonBox = document.querySelector(".buttonBox");
-    const buttonCreate = createElementHTML(
-      "button",
-      "buttonCreate basicStyleButton",
-      "Create"
-    );
+  const buttonBox = document.querySelector(".buttonBox");
+  const buttonCreate = createElementHTML(
+    "button",
+    "buttonCreate basicStyleButton",
+    "Create"
+  );
 
-    buttonBox.appendChild(buttonCreate);
+  buttonBox.appendChild(buttonCreate);
 
-    // Button Create function on click
+      // Donne une action au bouton crée
 
-    buttonCreate.addEventListener("click", () => {
+      buttonCreate.addEventListener("click", () => {
       const inputTextValue = inputText.value;
       const inputImageValue = inputImage.value;
       const postContentText = createElementHTML("p", "postContentText");
@@ -131,87 +223,72 @@ createPostButton.forEach((createPostButton) => {
         ".postContentTextPicture"
       );
       postContentTextPicture.appendChild(postContentText);
-      const postContentPicture = createElementHTML("img", "postContentPicture");
+      const postContentPicture = createImgElementHTML("postContentPicture", inputImageValue, "");
       postContentTextPicture.appendChild(postContentPicture);
-
       postContentText.innerHTML = inputTextValue;
-      postContentPicture.src = inputImageValue;
-      postContentPicture.alt = "";
       buttonCreate.style.display = "none";
 
-      // Création de la section commentaire du nouveau post
+    // Création de la section commentaire du nouveau post
 
-      const newCommentsContainer = createElementHTML(
-        "section",
-        "commentsContainer"
-      );
-      newPost.appendChild(newCommentsContainer);
-      createCommentsSectionHeader(newCommentsContainer);
-      const newSubmitButton = newPost.querySelectorAll(".buttonSubmit");
-      setSubmitButtons(newSubmitButton);
+    const newCommentsContainer = createElementHTML(
+      "section",
+      "commentsContainer"
+    );
+    newPost.appendChild(newCommentsContainer);
+    createCommentsSectionHeader(newCommentsContainer);
+    const newSubmitButton = newPost.querySelectorAll(".buttonSubmit");
+    setSubmitButtons(newSubmitButton);
 
-      // Création du bouton commentaires du nouveau post
+    // Création du bouton commentaires du nouveau post
 
-      const buttonComment = createElementHTML(
-        "button",
-        "buttonComments basicStyleButton",
-        "Commentaires"
-      );
-      buttonBox.appendChild(buttonComment);
-      setCommentButton(buttonComment);
-      commentsCount(newCommentsContainer);
-      postContentTextPicture.removeChild(inputText);
-      postContentTextPicture.removeChild(inputImage);
-    });
-
-    elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
-
-    const buttonSettings = newPost.querySelectorAll(".buttonSettingsPicture");
-    setButtonSettings(buttonSettings);
+    const buttonComment = createElementHTML(
+      "button",
+      "buttonComments basicStyleButton",
+      "Commentaires"
+    );
+    buttonBox.appendChild(buttonComment);
+    setCommentButton(buttonComment);
+    commentsCount(newCommentsContainer);
+    postContentTextPicture.removeChild(inputText);
+    postContentTextPicture.removeChild(inputImage);
   });
+
+  elementContainerOfPosts.insertBefore(newPost, createPostButton.nextSibling);
+
+  const buttonSettings = newPost.querySelectorAll(".buttonSettingsPicture");
+  setButtonSettings(buttonSettings);
+  const buttonModifys = newPost.querySelectorAll(".buttonModifyPicture");
+  setButtonModify(buttonModifys);
 });
 
 // Gestion de l'espace commentaires
 
 const buttonComments = document.querySelectorAll(".buttonComments");
-const post1 = document.querySelector(".post1");
-const commentsPost1 = [
-    { name: "Emmanuel Macron", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Bonne chance à tous et bravo pour vos présentations!." },
+const deleteButtons = [];
+
+const comments = [
+  [
+    { name: "Emmanuel Macron", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Bonne chance à tous et bravo pour vos présentation!." },
     { name: "Lucas", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "This is my moment of glory!!!" },
     { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Merci Manu!" }
-]
-const commentsPost2 = [
+  ],
+  [
     { name: "Yoann Fortin", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Moi je suis l'avant dernière image..." },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt autem iusto sequi eius exercitationem, nihil aliquam consequatur repudiandae, nulla cupiditate expedita explicabo praesentium." },
     { name: "Pierre Adrien", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" },
     { name: "Name Lastname", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Lorem ipsum3" }
-
+  ],
+  [
+    { name: "Matthieu", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "Arrête avec tes vannes à 2 balles, fais du code!" },
+    { name: "Lucas", picture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", comment: "T'es lourd!", }
+  ]
 ]
-const commentsPost3 = [
-  {
-    name: "Mathieu",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "Arrête avec tes vannes à 2 balles, fais du code!",
-  },
-  {
-    name: "lucas",
-    picture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-    comment:
-      "T'es lourd!",
-  },
-];
+
 const currentUser = [
-  {
-    username: "Pierre Adrien",
-    profilePicture:
-      "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png",
-  },
+  { username: "Pierre Adrien", profilePicture: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png", }
 ];
-const deleteButtons = [];
+
 
 // Appel de la fonction qui créée la section commentaire
 createCommentsSection();
@@ -229,11 +306,11 @@ function createCommentsSection() {
   posts.forEach((post, index) => {
     const commentsContainer = createElementHTML("section", "commentsContainer");
     post.appendChild(commentsContainer);
-    const comments = commentsSelection(index);
+    const postComments = comments[index];
     // Création du champ de saisie d'un nouveau commentaire
     createCommentsSectionHeader(commentsContainer);
     // Insertion des commentaires déjà existants sur chaque post
-    insertComments(commentsContainer, comments);
+    insertComments(commentsContainer, postComments);
     // Affichage du compteur de commentaires
     commentsCount(commentsContainer);
   });
@@ -270,20 +347,17 @@ function insertComments(commentContainer, comments) {
 // Créée l'ensemble des éléments composant un commentaire
 function createCommentElements(username, comment, picture) {
   const commentBox = createElementHTML("article", "commentBox");
-  const commentProfile = createElementHTML("div", "commentProfile");
-  commentBox.appendChild(commentProfile);
-  const profilePicture = createElementHTML("img", "commentPicture");
-  profilePicture.src = picture;
-  commentProfile.appendChild(profilePicture);
+  const profilePicture = createImgElementHTML("commentPicture", picture, "user profile picture");
+  commentBox.appendChild(profilePicture);
   const commentBody = createElementHTML("div", "commentBody");
   commentBox.appendChild(commentBody);
   const commentHeader = createElementHTML("div", "commentHeader");
   commentBody.appendChild(commentHeader);
   const profileName = createElementHTML("h3", "commentName", username);
   commentHeader.appendChild(profileName);
-  const deleteButton = createElementHTML("button", "deleteButton");
-  commentHeader.appendChild(deleteButton);
   if (username === "Pierre Adrien") {
+    const deleteButton = createElementHTML("button", "deleteButton");
+    commentHeader.appendChild(deleteButton);
     deleteButtons.push(deleteButton);
   }
   const commentText = createElementHTML("p", "commentText", comment);
@@ -294,7 +368,6 @@ function createCommentElements(username, comment, picture) {
 // Initialise un ensemble de boutons supprimer
 function setDeleteButtons(buttons) {
   buttons.forEach((button) => {
-    button.style.display = "block";
     const commentsContainer = button.closest(".commentsContainer");
     const commentBox = button.closest(".commentBox");
     setDeleteButton(button, commentsContainer, commentBox);
@@ -303,6 +376,7 @@ function setDeleteButtons(buttons) {
 
 // Initialise un bouton supprimer unique
 function setDeleteButton(button, commentsContainer, comment) {
+  button.style.display = "block";
   button.addEventListener("click", function () {
     commentsContainer.removeChild(comment);
     commentsCount(commentsContainer);
@@ -311,13 +385,8 @@ function setDeleteButton(button, commentsContainer, comment) {
 
 // Fonction permettant la création des éléments composant le nouveau commentaire
 function addNewComment(commentsContainer, comment, firstComment) {
-  const commentBox = createCommentElements(
-    currentUser[0].username,
-    comment,
-    currentUser[0].profilePicture
-  );
+  const commentBox = createCommentElements(currentUser[0].username, comment, currentUser[0].profilePicture);
   const deleteButton = commentBox.querySelector(".deleteButton");
-  deleteButton.style.display = "block";
   setDeleteButton(deleteButton, commentsContainer, commentBox);
   commentsContainer.insertBefore(commentBox, firstComment);
 }
@@ -353,18 +422,6 @@ function setCommentButton(button) {
     const commentContainer = currentPost.querySelector(".commentsContainer");
     visible(commentContainer);
   });
-}
-
-// Renvoie le tableau d'objets commentaires en fonction de l'index
-function commentsSelection(index) {
-  switch (index) {
-    case 0:
-      return commentsPost1;
-    case 1:
-      return commentsPost2;
-    case 2:
-      return commentsPost3;
-  }
 }
 
 // Initialise l'ensemble des boutons submit

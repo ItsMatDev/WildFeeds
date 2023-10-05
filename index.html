@@ -26,16 +26,19 @@
         <button class="createPost">Write new Post</button>
         
         <template class="postTemplate"> 
-            <section class="post">
+            <article class="post">
             <article class="postHead">
                 <div class="postHeadLogoName">
                     <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_640.png" alt="" class="userLogo">
                     <h1 class="userName"></h1>
                 </div>
+                <div class="buttonCorner">
+                <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt="" class="buttonModifyPicture"></button>
                 <button class="buttonSettings">
                     <img src="assets/logo/delete.svg" alt="Settings button"
                         class="buttonSettingsPicture">
                 </button>
+            </div>
             </article>
             <article class="postContent">
                 <div class="postContentTextPicture">
@@ -112,10 +115,13 @@
                     class="userLogo">
                 <h1 class="userName">Pierre Adrien</h1>
             </div>
+            <div class="buttonCorner">
+            <button class="buttonModify"><img src="./assets/pencil-svgrepo-com.svg" alt="" class="buttonModifyPicture"></button>
             <button class="buttonSettings">
                 <img src="assets/logo/delete.svg" alt="Settings button"
                     class="buttonSettingsPicture">
             </button>
+        </div>
         </div>
         <div class="postContent">
             <div class="postContentTextPicture">
@@ -126,11 +132,6 @@
             </div>
             <div class="buttonBox">
                 <button class="buttonComments basicStyleButton">Comments</button>
-                <button class="buttonShare basicStyleButton">Share!</button>
-                <button class="buttonLike basicStyleButton">
-                    <p class="likeCount">0</p>
-                    <img src="assets/like-empty.svg" alt="like thumb picture" class="likePicture">
-                </button>
             </div>
         </div>
     
