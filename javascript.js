@@ -32,7 +32,7 @@ function setButtonRemoves(buttonArray) {
 }
 
 // Fonction qui supprime des noeuds d'un parent
-function removeChilds(parentNode, firstNode, secondNode) {
+function removeChilds(parentNode, firstNode, secondNode = "") {
   parentNode.removeChild(firstNode);
   parentNode.removeChild(secondNode);
 }
@@ -113,7 +113,7 @@ function setButtonShare(buttonArray) {
       buttonRemove.forEach((button) => {
         button.addEventListener("click", () => {
           const sharedPostContainer = button.closest(".sharedPostContainer");
-          removeChilds(elementContainerOfPosts, sharedPostContainer);
+          elementContainerOfPosts.removeChild(sharedPostContainer);
         });
       });
 
