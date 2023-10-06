@@ -78,7 +78,7 @@ header h1 {
 }
 
 .wildfeedsLogo {
-  width: 12%;
+  width: 50%;
   height: 80%;
   margin-left: 5px;
 }
@@ -89,8 +89,9 @@ header h1 {
   padding-left: 2px;
 }
 
-a {
+header a {
   display: flex;
+  width: 20%;
   align-items: center;
   text-decoration: none;
 }
@@ -403,6 +404,7 @@ main {
 }
 
 h1,
+h2,
 h3 {
   font-family: var(--title-font);
 }
@@ -455,7 +457,7 @@ footer {
   }
 
   .wildfeedsLogo {
-    width: 9%;
+    width: 30%;
   }
 
   .loggedUserName {
