@@ -458,17 +458,16 @@ function setlikeButton(buttons) {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const parentPost = button.closest(".post");
-      const likePic = parentPost.querySelector(".likePicture");
+      let likePic = parentPost.querySelector(".likePicture");
       const likeCountElement = parentPost.querySelector(".likeCount");
-
-      if (likePic.src === "http://127.0.0.1:5500/assets/like-empty.svg") {
-        likePic.src = "http://127.0.0.1:5500/assets/like-full.svg";
-        likePic.alt = "thumbs up full you liked this post";
+      let likePicsrc = likePic.getAttribute("src");
+      if (likePicsrc === "assets/like-empty.svg") {
+        likePic = likePic.setAttribute("src", "assets/like-full.svg");
         likeCount += 1;
         likeCountElement.textContent = likeCount;
-      } else if (likePic.src === "http://127.0.0.1:5500/assets/like-full.svg") {
-        likePic.src = "http://127.0.0.1:5500/assets/like-empty.svg";
-        likePic.alt = "thumbs up empty you unliked this post";
+      } else if (likePicsrc === "assets/like-full.svg") {
+        likePic = likePic.setAttribute("src", "assets/like-empty.svg");
+        likePic.setAttribute("alt", "thumbs up empty you unliked this post");
         likeCount -= 1;
         likeCountElement.textContent = likeCount;
       }
