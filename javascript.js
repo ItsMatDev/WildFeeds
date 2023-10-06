@@ -467,7 +467,6 @@ function setlikeButton(buttons) {
         likeCountElement.textContent = likeCount;
       } else if (likePicsrc === "assets/like-full.svg") {
         likePic = likePic.setAttribute("src", "assets/like-empty.svg");
-        likePic.setAttribute("alt", "thumbs up empty you unliked this post");
         likeCount -= 1;
         likeCountElement.textContent = likeCount;
       }
