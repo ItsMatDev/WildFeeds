@@ -447,7 +447,7 @@ function commentsCount(commentsContainer) {
     }
     buttonComment.style.padding = "10px 20px";
   } else {
-    buttonComment.innerText = `sois le premier à commenter`;
+    buttonComment.innerText = `be the first to comment`;
     buttonComment.style.padding = "10px";
   }
 }
