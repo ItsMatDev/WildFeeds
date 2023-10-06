@@ -66,7 +66,7 @@ function setButtonModify(buttonArray) {
         modifyContentInputImage.value = inputImage.src;
         const postParentContent = parentPost.querySelector(".postContentTextPicture");
         appendChilds(postParentContent, modifyContentInputText, modifyContentInputImage);
-        const buttonConfirm = createElementHTML("button", "buttonConfirm basicStyleButton", "Modify");
+        const buttonConfirm = createElementHTML("button", "buttonConfirm basicStyleButton", "Modifier");
         const buttonComments = parentPost.querySelector(".buttonComments");
         const buttonBox = parentPost.querySelector(".buttonBox");
         buttonBox.appendChild(buttonConfirm);
@@ -138,6 +138,8 @@ function setButtonShare(buttonArray) {
       buttonLike.style.display = "none";
       const buttonRemovesParent = sharedPostContainer.querySelector(".post .buttonRemoves");
       buttonRemovesParent.style.display = "none";
+      const commentsContainer = sharedPostContainer.querySelector('.commentsContainer');
+      commentsContainer.style.display = "none";
     });
   });
 }
@@ -169,7 +171,7 @@ createPostButton.addEventListener("click", () => {
   // Crée le bouton qui crée un nouveau post
 
   const buttonBox = document.querySelector(".buttonBox");
-  const buttonCreate = createElementHTML("button", "buttonCreate basicStyleButton", "Create");
+  const buttonCreate = createElementHTML("button", "buttonCreate basicStyleButton", "Créer");
 
   buttonBox.appendChild(buttonCreate);
 
@@ -195,7 +197,7 @@ createPostButton.addEventListener("click", () => {
 
     // Création du bouton commentaires du nouveau post
 
-    const buttonComment = createElementHTML("button", "buttonComments basicStyleButton", "Commentaires");
+    const buttonComment = createElementHTML("button", "buttonComments basicStyleButton", "Comments");
     buttonBox.appendChild(buttonComment);
     setCommentButton(buttonComment);
     commentsCount(newCommentsContainer);
@@ -322,7 +324,7 @@ function createCommentsSectionHeader(commentsContainer) {
   const commentsSectionHeader = createElementHTML("div", "commentsSectionHeader");
   commentsContainer.appendChild(commentsSectionHeader);
   const commentInput = createElementHTML("input", "commentInput");
-  const submitButton = createElementHTML("button", "buttonSubmit basicStyleButton", "Submit");
+  const submitButton = createElementHTML("button", "buttonSubmit basicStyleButton", "Valider");
   commentInput.placeholder = "Écris ton commentaire ici";
   appendChilds(commentsSectionHeader, commentInput, submitButton);
 }
@@ -445,7 +447,7 @@ function commentsCount(commentsContainer) {
     }
     buttonComment.style.padding = "10px 20px";
   } else {
-    buttonComment.innerText = `Be the first to comment`;
+    buttonComment.innerText = `sois le premier à commenter`;
     buttonComment.style.padding = "10px";
   }
 }
@@ -456,18 +458,17 @@ const likeButton = document.querySelectorAll(".buttonLike");
 function setlikeButton(buttons) {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      let likeCount = parseInt(button.querySelector('.likeCount').innerText);
+      let likeText = button.querySelector('.likeCount');
       const parentPost = button.closest(".post");
       let likePic = parentPost.querySelector(".likePicture");
-      const likeCountElement = parentPost.querySelector(".likeCount");
       let likePicsrc = likePic.getAttribute("src");
       if (likePicsrc === "assets/like-empty.svg") {
         likePic = likePic.setAttribute("src", "assets/like-full.svg");
-        likeCount += 1;
-        likeCountElement.textContent = likeCount;
+        likeText.innerText = likeCount+1;
       } else if (likePicsrc === "assets/like-full.svg") {
         likePic = likePic.setAttribute("src", "assets/like-empty.svg");
-        likeCount -= 1;
-        likeCountElement.textContent = likeCount;
+        likeText.innerText = likeCount-1;
       }
     });
   });
